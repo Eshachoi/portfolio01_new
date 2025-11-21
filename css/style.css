@@ -260,99 +260,91 @@
   /*About 시작*/
   .about {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    padding: 180px 0;
     position: relative;
   }
-  .about_pic {
+  .about_inner {
     position: relative;
-    width: 80%;
-    height: 100%;
+    width: 100%;
+    max-width: 1500px;
     margin: 0 auto;
   }
-  .about_pic figure {
+  .about_imgs {
+    position: relative;
+    width: 100%;
+    height: 620px;
+  }
+  .about_imgs .img {
     position: absolute;
-    object-fit: cover;
   }
-  .img_box_img01 {
-    top: 100px;
-    left: 300px;
-    width: 611px;
-    height: 611px;
+  .about_imgs img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
   }
-  .img_box_img02 {
-    top: 200px;
-    left: 1200px;
+  .about_imgs .img01 {
+    top: 0;
+    left: 6%;
+    width: 540px;
+  }
+    .about_imgs .img02 {
+    top: 90px;
+    right: 8%;
     width: 450px;
     height: 450px;
+    opacity: 0.9;
   }
-  .img_box_img03 {
-    top: 500px;
-    left: 430px;
-    width: 390px;
-    height: auto ;
-  }
-  .about_pic .img_box_img01 {
-    top: 7%;
-    left: 10%;
-    width: 611px;
-    height: 611px;
+  .about_imgs .img03 {
+    top: 450px;
+    left: 50%;
+    width: 410px;
+    height: 410px;
+    transform: translateX(-50%);
     opacity: 0.9;
   }
   
-  .about_pic .img_box_img02 {
-    top: 19%;
-    right: 12%;
-    width: 450px;
-    height: 450px;
-    opacity: 0.9;
-  }
-  .about_pic .img_box_img03 {
-    top: 65%;
-    left: 40%;
-    width: 410px;
-    height: 410px;
-    z-index: 2;
-    opacity: 0.9;
-  }
-  .about .text_box {
+  .about_text {
     position: absolute;
-    z-index: 5;
-    text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
   }
-  .hide_text {
+  .about_text h2 {
+    font-family: var(--font-body);
+    font-weight: bold;
+    font-size: 3.8rem;
+    color: var(--color-darkbrown);
+    margin-bottom: 40px;
+  }
+  .about_text h2.line {
+    transform: translateY(-50px) scale(0.95);
+    transition: transform 0.8s cubic-bezier(0.22, 1.4, 0.36, 1),
+    opacity 0.8s ease-out;
+  }
+  .about_text p {
+    font-size: 1.8rem;
+    color: var(--color-darkbrown);
+  }
+  .about_text h2.show {
+    opacity: 1;
+    transform: translateY(0 scale(1));
+  }
+  .about_text .line {
     opacity: 0;
-    transform: translateY(60px);
-    will-change: transform, opacity;
+    transform: translateY(40px);
+    font-size: 2.8rem;
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--color-darkbrown);
+    transition: opacity 0.8 ease-out, transform 0.5s ease-out;
   }
-  .show_text {
+  .about_text .line.show {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 1s ease, transform 1s ease-out;
-  }
-  .about .text_box h2 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 3.8rem;
-    color: #3e322a;
-    margin-bottom: 70px;
-    align-items: center;
-  }
-  .text_box p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 2.4rem;
-    color: #3e322a;
-    margin: 20px 0;
-    align-items: center;
-  }
-  .parallax_active {
-    transform: translateY(var(--parallax-shift, 0px));
   }
   /*About 끝*/
   
@@ -978,43 +970,36 @@
     }
     /*about section 모바일 */
     .about {
+      padding: 80px 0;
+    }
+    .about_imgs {
       height: auto;
-      padding: 20px 0;
     }
-    .about_pic figure {
-      display: none;
-    }
-    .about_pic .img_box_img01 {
-      display: block;
+    .about_imgs .img01 {
       position: static;
-      align-items: center;
-      justify-content: center;
+      display: block;
       width: 90%;
-      height: auto;
       margin: 0 auto;
     }
-    .text_box {
+    /* 이미지 2,3 모바일에서 숨기기 */
+    .about_imgs .img02,
+    .about_imgs .img03 {
+        display: none;
+    }
+    .about_text {
       position: static;
       transform: none;
       margin-top: 40px;
+      text-align: center;
     }
-    .text_box h2 {
-      font-size: 2.2rem;
+    .about_text h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
-    .text_box p {
-      font-size: 1.4rem;
+    .about_text .line {
+        font-size: 1.2rem
     }
-    .hide_text {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s ease, transform 1s ease-out;
-    }
-    .show_text {
-      opacity: 1;
-      transform: translateY(0);
-
-    }
-
+ 
     /*portfolio 모바일*/
     .scroll_container {
     display: grid;

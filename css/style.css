@@ -591,13 +591,14 @@
     margin: 40px auto;
     background: #fff;
     border-radius: 20px;
-    padding: 40px;
+    padding: 30px 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transition: all 0.5s ease;
-    transform: translateY(0);
+    transform: translateY(60px) scale(0.9);
+    opacity: 0.6;
     cursor: pointer;
     overflow: hidden;
-    display: none;
+    display: block;
   }
   
   .tab_content h4 {
@@ -618,9 +619,10 @@
     font-family: "Gowun Batang", sans-serif;
   }
   .tab_content.active {
-    transform: translateY(-20px) scale(1.02);
+    transform: translateY(-20px) scale(1.05);
     padding: 60px 40px;
     display: block;
+    opacity: 1;
   }
   .tab_content.active h4 {
     font-weight: 700;
@@ -1026,10 +1028,11 @@
     }
   
     .process_tabs {
+      width: 100%;
       display: flex;
       justify-content: center;
-      gap: 14px;
-      margin-top: 40px;
+      gap: 10px;
+      
     }
     .tab {
       width: 60px;
@@ -1046,16 +1049,20 @@
     /*숫자만보이기*/
     .tab .num {
       font-size: 22px;
+      font-weight: 600;
       opacity: 1;
-      margin: 0;
+      margin: 0 auto;
+      text-align: center;
       color: #595049;
+      position: static;
+      transform: none;
+
     }
     .tab .label {
       display: none;
     }
     .tab.active {
-      background: #a48d78;
-      border-color: #a48d78;
+      background: #a38e77;
     }
     .tab.active .num {
       color: #fff;
@@ -1067,11 +1074,13 @@
     }
     .tab_content {
       display: none;
-      width: 90%;
-      max-width: none;
-      padding: 28px;
+      width: calc(100% - 40px);
+      max-width: 100%;
+      transform: translateY(20px) scale(1);
+      opacity: 1;
+      padding: 30px 20px;
       border-radius: 14px;
-      margin: 0 auto;
+      margin: 30px auto;
       background: #fff;
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
@@ -1079,6 +1088,14 @@
       text-align: center;
       font-size: 22px;
       color: #A48D78;
+    }
+    .tab_content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-brown);
+      opacity: 1;
+      max-height: none;
+      margin-top: 15px;
     }
     .tab_content.active {
       display: block;

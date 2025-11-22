@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slides[current].classList.add("active");
   }
 
-  setInterval(fadeSlide, 5000);
+  setInterval(fadeSlide, 7000);
 });
 
 //top btn & scroll progress bar

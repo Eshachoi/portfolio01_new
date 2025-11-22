@@ -216,7 +216,7 @@
 }
   .content_box h2 {
   font-family: var(--font-heading);
-  font-size: 4.6vw;      /* 반응형 크기 */
+  font-size: 3.8vw;      /* 반응형 크기 */
   color: #595049;
   line-height: 1.15;
   margin: 0;

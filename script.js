@@ -159,22 +159,54 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ==========================
    PROCESS — SINGLE TAB VIEW
 ========================== */
-const tabs = document.querySelectorAll('.tab');
-const contents = document.querySelectorAll('.tab_content');
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab_content");
 
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => {
+    // 처음 로딩 시: 모든 박스를 h4만 보이는 높이로 세팅
+    contents.forEach(content => {
+        const h4Height = content.querySelector("h4").scrollHeight + 60; // 패딩 포함
+        content.style.height = h4Height + "px";
+        content.classList.remove("open");
+    });
 
-    // 탭 active 초기화
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function () {
+            const targetID = this.dataset.target;
 
-    // 컨텐츠 초기화
-    contents.forEach(c => c.classList.remove('active'));
+            // 탭 활성화
+            tabs.forEach(t => t.classList.remove("active"));
+            this.classList.add("active");
 
-    // 클릭한 해당 인덱스만 오픈
-    contents[index].classList.add('active');
-  });
+            contents.forEach(content => {
+                const contentBox = content.querySelector(".content_box");
+                const h4Height = content.querySelector("h4").scrollHeight + 60; 
+                const fullHeight = contentBox.scrollHeight + 60;
+
+                if (content.id === targetID) {
+                    content.classList.add("open");
+                    content.style.height = fullHeight + "px";
+                } else {
+                    content.classList.remove("open");
+                    content.style.height = h4Height + "px";
+                }
+            });
+        });
+    });
+});
+
+
+
+
+
+
+
+// 최초 실행
+setupTabs();
+
+// 화면 크기 변경 시 PC <-> 모바일 자동 재설정
+window.addEventListener("resize", () => {
+  setupTabs();
 });
 
 window.addEventListener("scroll", () => {

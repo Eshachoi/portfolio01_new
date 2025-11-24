@@ -20,26 +20,23 @@ closeBtn.addEventListener('click', closeMenu);
 
 //about text fade in
 // About 텍스트 페이드 인
-document.addEventListener("scroll", () => {
-  const lines = document.querySelectorAll(".about_text p.line");
-  const about = document.querySelector("#about");
-  const center = window.innerHeight / 2;
+document.addEventListener("DOMContentLoaded", () => {
+    const aboutText = document.querySelector(".about_text");
 
-  lines.forEach((line, index) => {
-    const lineRect = line.getBoundingClientRect();
-    const distance = Math.abs(lineRect.top - center);
+    if (!aboutText) return;
 
-    // 🔥 여기를 키우면 ‘보이는 범위’가 넓어짐
-    const maxDist = 600; // 기존 250 → 600 (더 천천히 사라짐)
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    aboutText.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.25 }
+    );
 
-    let t = 1 - Math.min(distance / maxDist, 1);
-
-    const opacity = t;
-    const translateY = 40 * (1 - t);
-
-    line.style.opacity = opacity;
-    line.style.transform = `translateY(${translateY}px)`;
-  });
+    observer.observe(aboutText);
 });
 
 

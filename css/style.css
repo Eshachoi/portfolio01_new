@@ -214,7 +214,7 @@
   z-index: 10;
   box-sizing: border-box;
 }
-  .content_box h4 {
+  .content_box h2 {
   font-family: var(--font-heading);
   font-size: 3.8vw;      /* 반응형 크기 */
   color: #595049;
@@ -376,48 +376,52 @@
 }
 
 /* 제목 영역 */
-.portfolio .title_wrap {
+.title_wrap_portfolio {
   position: relative;
   margin-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible;
 }
 
-.deco_square {
+.deco_square_portfolio {
   position: relative;
+  width: 170px;
+  height: 170px;
 }
 
-.deco_square img {
+.deco_square_portfolio img {
   width: 170px;
   height: 170px;
   position: absolute;
-  top: 20px;
+  top: 180px;
   left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
+  transform: translateX(-120%);
+  z-index: 5;
+  display: block;
 }
 
-.section_title {
+.section_title_portfolio {
   position: relative;
   z-index: 1;
-  font-family: "Antic Didone", serif;
+  font-family: var(--font-body);
   font-size: 48px;
-  color: #595049;
-  margin-top: 100px;
+  color: var(--color-brown);
+  margin-top: 120px;
   letter-spacing: 2px;
 }
 
 /* 무한 스크롤 컨테이너 */
 .scroll_container {
   width: max-content;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   white-space: nowrap;
   display: flex;
   gap: 30px;
   padding: 80px 0;
   margin-top: 100px;
-  position: relative;
 }
 
 .scroll_container li {
@@ -496,13 +500,13 @@
     padding: 0 60px;
 }
 
-.process .title_wrap {
+.title_wrap_process {
     position: relative;
     text-align: left;
     margin: 150px 0 0 100px;
 }
 
-.deco_square img {
+.deco_square_process img {
     width: 170px;
     height: 170px;
     position: absolute;
@@ -511,13 +515,13 @@
     z-index: 0;
 }
 
-.process .section_title {
+.section_title_process {
     position: relative;
     z-index: 1;
     font-family: "Antic Didone", serif;
     font-size: 48px;
     color: #595049;
-    transform: translateY(140px) translateX(-40px);
+    transform: translateY(140px) translateX(40px);
     letter-spacing: 2px;
     margin-left: 90px;
 }
@@ -659,12 +663,12 @@
     display: block;
     position: relative;
   }
-  .service .title_wrap {
+  .service .title_wrap_service {
     position: relative;
     text-align: center;
     margin: 60px 0 0 0;
   }
-  .service .deco_square img{
+  .service .deco_square_service img{
     width: 170px;
     height: 170px;
     position: absolute;
@@ -673,7 +677,7 @@
     transform: translateX(-50%);
     z-index: 0;
   }
-  .service .section_title {
+  .service .section_title_service {
     position: relative;
     z-index: 1;
     font-family: "Antic Didone", serif;
@@ -1050,20 +1054,32 @@
     }
  
     /*portfolio 모바일*/
-    .portfolio .title_wrap {
-      margin-top: 120px;
+    .title_wrap_portfolio {
+      margin-top: 60px;
+      align-items: center;
+      position: relative;
     }
-    .deco_square img {
+    .deco_square_portfolio {
+      width: 120px;
+      height: 120px;
+      position: relative;
+    }
+    .deco_square_portfolio img {
       width: 120px;
       height: 120px;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 0;
+      position: absolute;
+      z-index: 10;
     }
-    .section_title {
-      margin-top: 80px;
+    .section_title_portfolio {
       font-size: 32px;
+      position: relative;
+      z-index: 20;
+      text-align: center;
+      margin-top: -30px;
+      left: 50%;
     }
     .scroll_container {
     width: 100%;
@@ -1102,12 +1118,12 @@
     }
 
     /* 제목 */
-    .process .title_wrap {
+    .process .title_wrap_process {
         margin: 80px 0 0 0;
         text-align: center;
     }
 
-    .deco_square img {
+    .deco_square_process img {
         width: 70px;
         height: 70px;
         top: -40px;
@@ -1115,7 +1131,7 @@
         transform: translateX(-60%);
     }
 
-    .process .section_title {
+    .process .section_title_process {
         transform: none;
         margin-left: 0;
         margin-top: 40px;

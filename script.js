@@ -67,43 +67,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //portfolio hirizontal scroll
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".scroll_container");
-  if (!container || window.innerWidth <= 768) return;
+  const scrollContainer = document.querySelector(".scroll_container");
 
-  let speed = 1;
-  let isPaused = false;
-
-  // li 6개 불러오기
-  let items = Array.from(container.children);
-  const gap = parseFloat(getComputedStyle(container).gap) || 0;
-
-  // 원본 width 계산
-  let itemWidths = items.map(li => li.getBoundingClientRect().width);
-  let originalWidth = itemWidths.reduce((a, b) => a + b, 0) + gap * (items.length - 1);
-
-  // 2세트 구성 (총 12개)
-  items.forEach(item => container.appendChild(item.cloneNode(true)));
-
-  let position = 0;
-
-  container.addEventListener("mouseenter", () => { isPaused = true; });
-  container.addEventListener("mouseleave", () => { isPaused = false; });
-
-  function loop() {
-    if (!isPaused) position -= speed;
-
-    // reset 순간을 "순간이동"이 아니라 "연결점 이동"으로 처리 → 부드러움 100%
-    if (Math.abs(position) >= originalWidth) {
-      position += originalWidth;
-    }
-
-    container.style.transform = `translateX(${position}px)`;
-    requestAnimationFrame(loop);
+  // 모바일일 때는 JS 스크롤 아예 사용하지 않음
+  if (window.innerWidth <= 768) {
+    return;
   }
 
-  loop();
-});
+  // PC일 때만 자동 스크롤 실행
+  let scrollAmount = 0;
 
+  function autoScroll() {
+    scrollAmount += 1;
+    scrollContainer.scrollLeft = scrollAmount;
+
+    if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+      scrollAmount = 0;
+    }
+
+    requestAnimationFrame(autoScroll);
+  }
+
+  autoScroll();
+});
 
 
 

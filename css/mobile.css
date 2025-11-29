@@ -1,4 +1,4 @@
-  @media (min-width:769px) {
+  @media screen and (min-width: 769px) {
     .scroll_container {
       display: flex;
       white-space: nowrap;
@@ -16,8 +16,6 @@
       border-radius: 17px;
     }
 
-  }
-  @media screen and (min-width: 769px) {
     .process_tabs {
         display: flex;
         justify-content: space-between;

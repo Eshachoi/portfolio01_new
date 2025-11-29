@@ -544,14 +544,19 @@
 
 .process_tabs {
     width: 100%;
+    max-width: 1800px;
+    margin: 80px auto;
     display: flex;
     justify-content: space-between;
-    margin: 80px 0 70px;
+    align-items: flex-start;
+    gap: 40px;
 }
 
 .tab {
     cursor: pointer;
     position: relative;
+    flex: 1;
+    min-width: 0;
     transition: 0.3s;
 }
 

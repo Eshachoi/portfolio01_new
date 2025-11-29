@@ -311,7 +311,7 @@
     -------------------------------------- */
     .process_tabs {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         gap: 10px;
         margin: 40px 0;
     }

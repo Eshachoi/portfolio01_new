@@ -287,7 +287,7 @@
   }
   .about_imgs .img01 {
     top: 0;
-    left: 6%;
+    /* left: 6%; */
     width: 540px;
   }
     .about_imgs .img02 {
@@ -527,7 +527,8 @@
     font-size: 48px;
     color: var(--color-brown);
     letter-spacing: 2px;
-    margin-left: 90px;
+    margin-left: 120px;
+    transform: translateY(70px);
 }
 
 .process .intro_text {

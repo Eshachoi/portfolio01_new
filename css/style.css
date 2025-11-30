@@ -670,51 +670,46 @@
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
-    display: block;
     position: relative;
   }
-  .service .title_wrap_service {
+  /*title section*/
+  .title_wrap_service {
     position: relative;
     text-align: center;
-    margin: 170px 0 0 0;
+    margin-top: 150px;
   }
-  .service .deco_square_service img{
+  /*가상이미지 사각형*/
+  .title_wrap_service::before {
+    content: "";
+    position: absolute;
+    top: -40px;
     width: 170px;
     height: 170px;
-    position: absolute;
-    top: -20px;
-    left: 40%;
-    transform: translateX(-80%);
+    transform: translateX(-50%);
+    background: url("../image/decosquare.png") no-repeat center/contain;
     z-index: 0;
   }
-  .service .section_title_service {
+  .section_title_service {
     position: relative;
     z-index: 1;
-    font-family: "Antic Didone", serif;
+    font-family: var(--font-body);
     font-weight: 600;
     font-size: 48px;
-    color: #595049;
-    /* transform: translateY(110px); */
+    color: var(--color-brown);
     letter-spacing: 2px;
   }
+  /*service list*/
   .service_list {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    flex-direction: row;
-    margin: 250px auto;
+    margin: 200px auto 120px;
     gap: 32px;
   }
-  .service_item {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
+  /*각각의 이미지카드*/
   .service_item figure {
     overflow: hidden;
-    width: 340 px;
+    width: 340px;
     height: 470px;
     border-radius: 8px;
     transition: transform 0.4s ease;
@@ -723,7 +718,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
     transition: transform 0.4s ease;
   }
   .service_item:hover img {
@@ -731,7 +725,7 @@
   }
   .service_item h3 {
     font-size: 28px;
-    font-family: "Antic Didone", serif;
+    font-family: var(--font-body);
     text-align: center;
     margin-top: 30px;
   }
@@ -783,34 +777,46 @@
   
   /*footer 시작*/
   .footer {
-    width: 100%;
-    height: 200px;
-    background-color: #56493D;
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
-    gap: 50px;
-  }
-  .footer_inner {
-    display: flex;
-    justify-content: flex-start;
-    width: 186px;
-    height: 151px;
-    margin: 0 0 0 50px;
-  
-  }
-  .footer p {
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 1.2rem;
-    color: #FFFFFF;
-    line-height: 1.5;
-  }
-  .footer_info a {
-    text-decoration: none;
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 1.2rem;
-    color: #FFFFFF;
-  }
+  width: 100%;
+  height: 100px;
+  background-color: #56493D;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+}
+
+.footer_inner {
+  display: flex;
+  justify-content: flex-start;
+  width: 186px;
+  height: 151px;
+  margin-left: 50px;
+}
+
+.footer_inner img {
+  height: auto;
+}
+
+.footer_row {
+  display: flex;
+  align-items: center;     /* 세로 정렬 완벽 */
+  gap: 6px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1;          /* 세로 흔들림 제거 */
+  margin: 3px 0;
+}
+
+.footer_row .bar {
+  display: flex;
+  align-items: center;      /* 막대 완전 중앙 정렬 */
+  justify-content: center;
+  height: 100%;
+  line-height: 1;
+}
+
   /*footer 끝*/
   
   /*side btn 시작*/

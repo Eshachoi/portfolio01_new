@@ -52,6 +52,8 @@
     .logo img {
       width: 120px;
     }
+    /*햄버거 버튼 (모바일)*/
+  
     /* PC 레이아웃 완전 초기화 */
     .main_section {
       all: unset;
@@ -472,7 +474,7 @@
     width: 70px;
     height: 70px;
     top: -30px;
-    left: 19%;
+    left: 40<HTML%;
   }
   .section_title_service {
     font-size: 32px;
@@ -570,4 +572,40 @@
 }
 
  
+}
+
+@media (min-width: 1024px){
+ /*PC에서는 풀스크린 메뉴 숨김*/
+  .contact_btn {
+    display: none;
+  }
+  .mobile_call_btn {
+    display: flex;
+  }
+  .header_menu {
+    padding: 0 16px;
+  }
+  .logo img {
+    height: 42px;
+  }
+  .open_btn i {
+    font-size: 1.9rem;
+  }
+/* ---------------------------
+   반응형
+---------------------------- */
+
+/* PC에서는 모바일 메뉴 숨김 */
+@media (min-width: 1025px) {
+  .open_btn,
+  .close_btn,
+  .nav_menu,
+  .mobile_call_btn {
+    display: none;
+  }
+}
+
+/* 모바일에서 PC Contact 숨기고 모바일 전화 버튼 표시 */
+@media (max-width: 1024px) {
+  
 }

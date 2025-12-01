@@ -1,22 +1,21 @@
-//햄버거메뉴
-const navArea = document.querySelector('.nav_area');
+//======햄버거메뉴=========
+const navMenu = document.querySelector('.nav_menu');
 const openBtn = document.querySelector('.open_btn');
 const closeBtn = document.querySelector('.close_btn');
-const navMenu = document.querySelector('.nav_menu');
 
-function openMenu() {
-  navArea.classList.add('menu-open');
+// 메뉴 열기
+openBtn.addEventListener('click', () => {
   navMenu.classList.add('active');
-  // 더 이상 body overflow 숨기지 않는다!
-}
+  document.body.style.overflow = "hidden";
+});
 
-function closeMenu() {
-  navArea.classList.remove('menu-open');
+// 메뉴 닫기
+closeBtn.addEventListener('click', () => {
   navMenu.classList.remove('active');
-}
+  document.body.style.overflow = "";
+});
 
-openBtn.addEventListener('click', openMenu);
-closeBtn.addEventListener('click', closeMenu);
+
 
 //about text fade in
 // About 텍스트 페이드 인

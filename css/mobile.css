@@ -151,7 +151,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 120px;
+      margin-bottom: 60px;
     }
     .about_imgs {
       display: flex;
@@ -210,10 +210,10 @@
         font-size: 1.3rem
     }
  
-    /*portfolio 모바일*/
+    /*===========portfolio 모바일============*/
     .portfolio {
-      height: 60vh;
-      margin-bottom: 120px;
+      height: auto;
+      margin-bottom: 60px;
     }
     .title_wrap_portfolio {
       margin-top: 60px;
@@ -287,6 +287,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 0;
+  margin-top: 0;
 }
  .slideshow_container {
   display: none;
@@ -309,7 +311,7 @@
     
   }
 
-/*process*/
+/*============process===========*/
 /* 부모 여백 복구 */
     .process {
         padding: 0 20px;
@@ -575,37 +577,26 @@
 }
 
 @media (min-width: 1024px){
- /*PC에서는 풀스크린 메뉴 숨김*/
-  .contact_btn {
-    display: none;
-  }
-  .mobile_call_btn {
-    display: flex;
-  }
-  .header_menu {
-    padding: 0 16px;
-  }
-  .logo img {
-    height: 42px;
-  }
-  .open_btn i {
-    font-size: 1.9rem;
-  }
+  .header_left { width: 90px; justify-content: flex-start; }
+  .header_right { width: 90px; }
+  .logo img { height: 44px; }
+
+  /* show mobile call icon, hide contact text */
+  .contact_btn { display: none; }
+  .mobile_call_btn { display: inline-flex; }
+
+  /* hamburger size */
+  .open_btn i { font-size: 1.8rem; }
+}
+
 /* ---------------------------
    반응형
 ---------------------------- */
 
 /* PC에서는 모바일 메뉴 숨김 */
 @media (min-width: 1025px) {
-  .open_btn,
-  .close_btn,
-  .nav_menu,
-  .mobile_call_btn {
-    display: none;
-  }
+  ..open_btn { display: none; }
+  .nav_menu { display: none !important; } 
+  /* if desktop uses normal nav, keep overlay hidden */
 }
 
-/* 모바일에서 PC Contact 숨기고 모바일 전화 버튼 표시 */
-@media (max-width: 1024px) {
-  
-}

@@ -1,19 +1,50 @@
 //======햄버거메뉴=========
-const navMenu = document.querySelector('.nav_menu');
+// menu toggle
 const openBtn = document.querySelector('.open_btn');
 const closeBtn = document.querySelector('.close_btn');
+const navMenu = document.querySelector('.nav_menu');
 
-// 메뉴 열기
-openBtn.addEventListener('click', () => {
-  navMenu.classList.add('active');
-  document.body.style.overflow = "hidden";
+if (openBtn && closeBtn && navMenu) {
+  openBtn.addEventListener('click', () => {
+    navMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    navMenu.setAttribute('aria-hidden', 'false');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+    navMenu.setAttribute('aria-hidden', 'true');
+  });
+
+  // 닫기: 오버레이 바깥 클릭으로 닫기 (선택)
+  navMenu.addEventListener('click', (e) => {
+    if (e.target === navMenu) {
+      navMenu.classList.remove('active');
+      document.body.style.overflow = '';
+      navMenu.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
+
+// 헤더 스크롤 동작: 아래로 스크롤하면 숨김, 위로 스크롤하면 표시
+let lastScroll = window.scrollY || 0;
+const headerEl = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+  const current = window.scrollY || 0;
+  if (!headerEl) return;
+
+  if (current > lastScroll && current > 80) {
+    // 스크롤 다운
+    headerEl.classList.add('hidden');
+  } else {
+    // 스크롤 업
+    headerEl.classList.remove('hidden');
+  }
+  lastScroll = current;
 });
 
-// 메뉴 닫기
-closeBtn.addEventListener('click', () => {
-  navMenu.classList.remove('active');
-  document.body.style.overflow = "";
-});
 
 
 
@@ -65,31 +96,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //portfolio hirizontal scroll
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollContainer = document.querySelector(".scroll_container");
-
-  // 모바일일 때는 JS 스크롤 아예 사용하지 않음
-  if (window.innerWidth <= 768) {
-    return;
-  }
-
-  // PC일 때만 자동 스크롤 실행
-  let scrollAmount = 0;
-
-  function autoScroll() {
-    scrollAmount += 1;
-    scrollContainer.scrollLeft = scrollAmount;
-
-    if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-      scrollAmount = 0;
-    }
-
-    requestAnimationFrame(autoScroll);
-  }
-
-  autoScroll();
-});
-
+/*****************************************
+ * Portfolio Scroll - Auto Scroll 제거 버전
+ * PC/Mobile 모두 자동 스크롤 없음
+ * 콘텐츠 부족하면 복제해서 폭만 늘림
+ *****************************************/
+/*****************************************
+ * Portfolio Scroll - PC만 복제 / 모바일 NO
+ *****************************************/
 
 
 

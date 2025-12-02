@@ -72,17 +72,19 @@
     font-size: 23px;
     font-weight: 500;
     color: #595049;
+    z-index: 1000;
   }
   .mobile_call_btn {
     display: none;
-    font-size: 22px;
-    color: var(--color-brown);
+  
+
   }
   
   .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    
   }
   
   .logo img {
@@ -281,7 +283,7 @@
   .about_imgs {
     position: relative;
     width: 100%;
-    height: 620px;
+    height: 900px;
   }
   .about_imgs .img {
     position: absolute;
@@ -297,14 +299,14 @@
     width: 540px;
   }
     .about_imgs .img02 {
-    top: 90px;
+    top: 8%;
     right: 8%;
     width: 450px;
     height: 450px;
     opacity: 0.9;
   }
   .about_imgs .img03 {
-    top: 450px;
+    bottom: 0;
     left: 50%;
     width: 410px;
     height: 410px;
@@ -378,6 +380,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 100px;
 }
 
 /* 제목 영역 */
@@ -417,9 +420,8 @@
   overflow-y: hidden;
   white-space: nowrap;
   display: flex;
-  gap: 30px;
-  padding: 80px 0;
-  margin-top: 100px;
+  gap: 50px;
+  margin: 100px 0;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
@@ -429,7 +431,6 @@
   list-style: none;
   display: inline-block;
   flex-shrink: 0;
-  margin-right: 30px;
 }
 .scroll_container img {
   width: 480px;
@@ -504,7 +505,6 @@
     position: relative;
     width: 100%;
     margin: 0 auto;
-    padding: 0 60px;
 }
 
 .title_wrap_process {

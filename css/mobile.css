@@ -438,13 +438,13 @@
         line-height: 1.6;
     }
     .tab_content {
-      height: auto !important;
-      opacity: 1 !important;
+      height: auto;
+      opacity: 1;
   }
 
   .tab_content .content_box {
-      opacity: 1 !important;
-      transform: none !important;
+      opacity: 1;
+      transform: none;
   }
 
   .tab_content p {
@@ -595,8 +595,8 @@
 
 /* PC에서는 모바일 메뉴 숨김 */
 @media (min-width: 1025px) {
-  ..open_btn { display: none; }
-  .nav_menu { display: none !important; } 
+  .open_btn { display: none; }
+  .nav_menu { display: none; } 
   /* if desktop uses normal nav, keep overlay hidden */
 }
 

@@ -510,15 +510,20 @@
 .title_wrap_process {
     position: relative;
     display: inline-block;
-    margin: 150px 0 0 100px;
+    /* margin: 150px 0 0 100px; */
 }
 
-.title_wrap_process::before {
+.process_wrapper {
+  width: 1600px;
+  margin: 100px auto;
+  position: relative;
+}
+
+.process_wrapper::before {
   content: "";
   position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
   width: 170px;
   height: 170px;
   background-image: url("/image/decosquare.png");
@@ -527,20 +532,25 @@
   z-index: -1;
 }
 
+.process_title {
+  padding: 100px 32px;
+}
+
+
 .section_title_process {
     z-index: 1;
     font-family: var(--font-body);
     font-size: 48px;
     color: var(--color-brown);
     letter-spacing: 2px;
-    margin-left: 120px;
-    transform: translateY(70px);
+    /* margin-left: 120px; */
+    /* transform: translateY(70px); */
 }
 
 .process .intro_text {
     width: 100%;
     padding: 1.5rem;
-    margin: 170px 0 0 100px;
+    /* margin: 170px 0 0 100px; */
 }
 .process .intro_text p {
     font-size: 18px;

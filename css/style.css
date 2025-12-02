@@ -511,9 +511,13 @@
     position: relative;
     display: inline-block;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     /* margin: 150px 0 0 100px; */
 }
 
+=======
+}
+>>>>>>> Stashed changes
 =======
 }
 >>>>>>> Stashed changes
@@ -523,12 +527,20 @@
   position: relative;
 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .process_wrapper::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
+=======
+.process_wrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+>>>>>>> Stashed changes
 =======
 .process_wrapper::before {
   content: "";
@@ -544,12 +556,18 @@
   z-index: -1;
 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .process_title {
   padding: 100px 32px;
 }
 
 
+=======
+.process_title {
+  padding: 100px 32px;
+}
+>>>>>>> Stashed changes
 =======
 .process_title {
   padding: 100px 32px;
@@ -566,6 +584,9 @@
     /* transform: translateY(70px); */
 =======
     margin-left: 120px;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 

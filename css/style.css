@@ -510,20 +510,32 @@
 .title_wrap_process {
     position: relative;
     display: inline-block;
+<<<<<<< Updated upstream
     /* margin: 150px 0 0 100px; */
 }
 
+=======
+}
+>>>>>>> Stashed changes
 .process_wrapper {
   width: 1600px;
   margin: 100px auto;
   position: relative;
 }
+<<<<<<< Updated upstream
 
 .process_wrapper::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
+=======
+.process_wrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+>>>>>>> Stashed changes
   width: 170px;
   height: 170px;
   background-image: url("/image/decosquare.png");
@@ -531,20 +543,30 @@
   background-repeat: no-repeat;
   z-index: -1;
 }
+<<<<<<< Updated upstream
 
 .process_title {
   padding: 100px 32px;
 }
 
 
+=======
+.process_title {
+  padding: 100px 32px;
+}
+>>>>>>> Stashed changes
 .section_title_process {
     z-index: 1;
     font-family: var(--font-body);
     font-size: 48px;
     color: var(--color-brown);
     letter-spacing: 2px;
+<<<<<<< Updated upstream
     /* margin-left: 120px; */
     /* transform: translateY(70px); */
+=======
+    margin-left: 120px;
+>>>>>>> Stashed changes
 }
 
 .process .intro_text {
@@ -554,9 +576,9 @@
 }
 .process .intro_text p {
     font-size: 18px;
-    color: #595049;
+    color: var(--color-brown);
     line-height: 1.6;
-    font-family: var(--font-batang);
+    font-family: var(--font-korean);
 }
 
 .process_tabs {
@@ -622,7 +644,7 @@
 .tab_content {
     width: 350px;
     height: auto;
-    background: #fff;
+    background: var(--color-white);
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     overflow: hidden;
@@ -675,7 +697,7 @@
     top: 70%;
     left: 5%; 
     transform: translate(8%, 70%);
-    font-family: "Antic Didone", serif;
+    font-family: var(--font-body);
     font-size: 200px;
     color: #595049;
     opacity: 0.08;

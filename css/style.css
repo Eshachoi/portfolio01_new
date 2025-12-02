@@ -380,48 +380,54 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin: 0 auto;
 }
-
+.portfolio_wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+}
 /* 제목 영역 */
 .title_wrap_portfolio {
   position: relative;
-  display: inline-block;
-  margin-top: auto;
+  display: block;
+  text-align: center;
+  width: 100%;
+  top: 100px;
+
 }
-.title_wrap_portfolio::before {
+.portfolio_wrapper::before {
   content: "";
   position: absolute;
-  left: -100px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 40%;
+  top: 0;
+  transform: translateX(-50%);
   width: 170px;
   height: 170px;
   background-image: url("/image/decosquare.png");
   background-size: contain;
   z-index: -1;
+  margin: 0 auto;
 }
-
-
 .section_title_portfolio {
   position: relative;
   z-index: 1;
   font-family: var(--font-body);
   font-size: 48px;
   color: var(--color-brown);
-  margin-top: 120px;
+  bottom: 0;
   letter-spacing: 2px;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* 무한 스크롤 컨테이너 */
 .scroll_container {
   width: max-content;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  display: flex;
+  overflow: hidden;
   gap: 50px;
-  margin: 100px 0;
+  margin-top: 200px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
@@ -447,12 +453,13 @@
   /*rest 시작*/
   .rest {
     width: 100%;
-    height: 1080px;
+    height: auto;
     /* background-image: url(../image/mid-background.png); */
     background-size: cover;
     background-position: center;
     position: relative;
     overflow: hidden;
+    top: 100px;
   }
   .slideshow_container {
     position: relative;
@@ -510,44 +517,19 @@
 .title_wrap_process {
     position: relative;
     display: inline-block;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     /* margin: 150px 0 0 100px; */
 }
 
-=======
-}
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes
 .process_wrapper {
   width: 1600px;
   margin: 100px auto;
   position: relative;
 }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-.process_wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-=======
 .process_wrapper::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
->>>>>>> Stashed changes
-=======
-.process_wrapper::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
->>>>>>> Stashed changes
   width: 170px;
   height: 170px;
   background-image: url("/image/decosquare.png");
@@ -555,41 +537,25 @@
   background-repeat: no-repeat;
   z-index: -1;
 }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
 .process_title {
   padding: 100px 32px;
 }
-
-
-=======
 .process_title {
   padding: 100px 32px;
 }
->>>>>>> Stashed changes
-=======
 .process_title {
   padding: 100px 32px;
 }
->>>>>>> Stashed changes
 .section_title_process {
     z-index: 1;
     font-family: var(--font-body);
     font-size: 48px;
     color: var(--color-brown);
     letter-spacing: 2px;
-<<<<<<< Updated upstream
-    /* margin-left: 120px; */
+   /* margin-left: 120px; */
     /* transform: translateY(70px); */
-=======
     margin-left: 120px;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
-
 .process .intro_text {
     width: 100%;
     padding: 1.5rem;
@@ -611,7 +577,6 @@
     align-items: flex-start;
     gap: 40px;
 }
-
 .tab {
     cursor: pointer;
     position: relative;
@@ -619,13 +584,11 @@
     min-width: 0;
     transition: 0.3s;
 }
-
 .tab_inner {
     display: flex;
     flex-direction: column;
     width: 200px;
 }
-
 .tab .num {
     font-size: 96px;
     opacity: 0.04;
@@ -868,7 +831,7 @@
   gap: 6px;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 1rem;
-  color: #fff;
+  color: var(--color-white);
   line-height: 1;          /* 세로 흔들림 제거 */
   margin: 3px 0;
 }

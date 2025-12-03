@@ -517,6 +517,7 @@
     width: 100%;
     margin: 100px auto;
     padding: 100px;
+    min-height: 800px;
 }
 
 .title_wrap_process {
@@ -529,6 +530,7 @@
   width: 1600px;
   margin: 100px auto;
   position: relative;
+  z-index: 2;
 }
 .process_wrapper::before {
   content: "";
@@ -603,11 +605,7 @@
     color: #948f8b;
 }
 .tab_content.open p {
-  opacity: 1;
   transition: opacity .4s ease;
-}
-.tab_content p {
-  opacity: 0;
 }
 .tab.active .num {
     opacity: 1;
@@ -622,6 +620,8 @@
     width: 100%;
     display: flex;
     gap: 100px;
+    position: relative;
+    z-index: 2;
 }
 
 .tab_content {
@@ -655,7 +655,6 @@
     opacity: 0;
     font-size: 16px;
     line-height: 1.5;
-    opacity: 0;
     transition: opacity .4s ease;
     text-align: center;
     font-family: var(--font-korean);
@@ -677,17 +676,18 @@
 }
   .bg_text {
     position: absolute;
-    top: 70%;
-    left: 47%;
-    overflow: hidden; 
-    transform: translate(8%, 70%);
+    top: 80%;
+    left: 70%;
+    transform: translateX(-50%);
     font-family: var(--font-body);
     font-size: 200px;
-    color: #595049;
+    color: var(--color-brown);
     opacity: 0.08;
     z-index: 1;
     white-space: nowrap;
     pointer-events: none;
+    margin: 0;
+    padding: 0;
   }
   /*process 끝*/
   
@@ -698,6 +698,7 @@
     box-sizing: border-box;
     position: relative;
   }
+  
   /*title section*/
   .title_wrap_service {
     position: relative;
@@ -705,15 +706,18 @@
     margin-top: 150px;
   }
   /*가상이미지 사각형*/
-  .title_wrap_service::before {
+  .service_wrapper::before {
     content: "";
     position: absolute;
-    top: -40px;
+    top: 0;
+    left: 37%;
+    /* transform: translateX(-50%); */
     width: 170px;
     height: 170px;
-    transform: translateX(-190%);
-    background: url("../image/decosquare.png") no-repeat center/contain;
-    z-index: 0;
+    background-image: url("../image/decosquare.png");
+    background-size: contain;
+    z-index: -1;
+    margin: 0 auto;
   }
   .section_title_service {
     position: relative;
@@ -723,9 +727,9 @@
     font-size: 48px;
     color: var(--color-brown);
     letter-spacing: 2px;
-    transform: translateY(78px);
+    transform: translateY(125px);
   }
-  /*service list*/
+  /*==========service list=============*/
   .service_list {
     display: flex;
     justify-content: center;

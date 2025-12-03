@@ -60,7 +60,7 @@
     }
 
     .logo img {
-      width: 120px;
+      height: 70px;
     }
     /*햄버거 버튼 (모바일)*/
   
@@ -113,7 +113,7 @@
     .main_left {
       all: unset;
       position: absolute;
-      top: 50%;
+      top: 68%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -141,7 +141,7 @@
   
     .content_box p {
       margin-top: 16px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #fff;
       text-shadow: 0 2px 12px rgba(0,0,0,0.35);
     }
@@ -224,41 +224,55 @@
     .portfolio {
       height: auto;
       margin-bottom: 60px;
+      padding: 60px 20px;
+    }
+    .portfolio_wrapper {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0;
     }
     .title_wrap_portfolio {
-      margin: 80px auto;
+      margin: 60px auto 40px;
       padding: 0 20px;
+      width: 100%;
       align-items: center;
       position: relative;
       text-align: center;
     }
-    /*가상요소 위치*/
-    .title_wrap_portfolio::before {
+     /* 모바일용 가상요소*/
+     .title_wrap_portfolio::before {
       content: "";
       position: absolute;
       width: 70px;
       height: 70px;
-      left: 50%;
-      top: -10px;
+      left: 40%;
+      top: 0;
       transform: translateX(-50%);
-      background-image: url("/image/decosquare.png");
+      background-image: url("../image/decosquare.png");
       background-size: contain;
+      background-repeat: no-repeat;
       z-index: 0;
+     }
+    .portfolio_wrapper::before {
+      display: none;
     }
-    /*텍스트는 가상요소 위에*/
+    
+    /*텍스트는 가상요소 아래에*/
     .section_title_portfolio {
       font-size: 32px;
       position: relative;
       z-index: 1;
       text-align: center;
-      margin-top: 30px;
-      left: 0;
-      transform: none;
+      margin-top: 50px;
+      left: 5%;
+      transform: translateY(-15%);
+      letter-spacing: 1px;
     }
     .scroll_container {
     width: 100%;
     max-width: 600px;        /* 모바일에서 전체 폭 제한 */
-    margin: 0 auto;          /* 가운데 정렬 */
+    margin: 60px auto 0;          /* 가운데 정렬 */
     padding: 20px;           /* 좌우 여백 확보 */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -285,14 +299,6 @@
   }
   
 
-/*타이틀 글자*/
-.section_title_portfolio
- {
-    font-size: 28px;
-    transform: translateY(30px);
-    letter-spacing: 1px;
-    left: 25%;
-}
 
 
 /*=======rest section=======*/
@@ -342,6 +348,9 @@
       margin: 0 auto;
       padding: 0;
     }
+    .process_wrapper::before {
+      display: none;
+    }
     .process_title {
       padding:60px 0;
     }
@@ -350,26 +359,39 @@
       justify-content: center;
       display: flex;
       flex-direction: column;
-      margin-top: 60px;
+      margin: 60px auto 40px;
+      padding: 0 20px;
+      width: 100%;
+      text-align: center;
       position: relative;
     }
     /*가상이미지*/
     .title_wrap_process::before {
-    width: 70px;
-    height: 70px;
-    left: 50%;
-    top: -10%;
-    transform: translateY(-50%);
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      left: 40%;
+      top: 0;
+      transform: translateX(-50%);
+      background-image: url(../image/decosquare.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+    .process_wrapper::before {
+      display: none;
     }
     /*타이틀 텍스트*/
     .section_title_process {
     font-size: 32px;
-    margin-top: 20px;
-    letter-spacing: 1px;
     position: relative;
-    left: 0;
-    margin-left: 0;
+    z-index: 1;
+    margin-top: 50px;
+    left: -10%;
+    bottom: 10px;
     transform: none;
+    
     }
 
     .process .intro_text {
@@ -458,16 +480,12 @@
         display: none;
         width: 100%;
         max-width: 100%;
-        background: var(--color-white);
+        background: var(--color-beige);
         border-radius: 16px;
         padding: 24px 20px;
         box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-        opacity: 0;
-        transform: translateY(15px);
-        transition: opacity .3s ease, transform .3s ease;
         box-sizing: border-box;
         overflow: hidden;
-        margin: 15px 0;
     }
     .tab_content.active {
       display: block;
@@ -488,6 +506,7 @@
         font-weight: 600;
         line-height: 1.4;
         word-break: keep-all;
+        display: block;/*항상 보임*/
     }
 
     .tab_content p {
@@ -498,6 +517,7 @@
         margin: 0;
         display: block;
         word-break: keep-all;
+        opacity: 1;
     }
     .tab_content.active p {
       display: block;
@@ -506,8 +526,6 @@
     .tab_content .content_box {
       width: 100%;
       padding: 0;
-      opacity: 1;
-      transform: none;
       box-sizing: border-box;
   }
 
@@ -522,26 +540,55 @@
 
   
 
-  /*service section*/ 
+  /*==========service section==========*/ 
 
   .service {
     padding: 60px 20px;
     height: auto;
+    margin-bottom: 60px;
   }
-  /*가상이미지 크기 축소*/
-  .title_wrap_service {
-    margin-top: 60px;
+  .service_wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
   }
-  .title_wrap_service::before {
+  .title_wrapper::before {
+    content: "";
+    position: absolute;
     width: 70px;
     height: 70px;
-    top: -30px;
-    left: 40;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background-image: url("/image/decosquare.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
   }
+  .title_wrap_service {
+    position: relative;
+    text-align: center;
+    margin: 60px auto 40px;
+    padding: 0 20px;
+    width: 100%;
+  }
+  /*모바일 가상요소*/
+  .title_wrap_service::before {
+    display: none;
+  }
+  .title_wrapper ::before {
+    display: none;
+  }
+  /*텍스트*/
   .section_title_service {
     font-size: 32px;
-    align-items: center;
-    transform: translateY(10px);
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+    left: 0;
+    transform: none;
+    
   }
   .service_list {
     display: flex;

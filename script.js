@@ -105,13 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const isMobile = window.innerWidth <= 768;
 
   if (isMobile) {
-    // 모바일: 첫 번째 탭과 컨텐츠 활성화
+    // ========== 모바일 ==========
+    // 첫 번째 탭과 컨텐츠 활성화
     tabs[0].classList.add("active");
     contents[0].classList.add("active");
     
     tabs.forEach(tab => {
       tab.addEventListener("click", function (e) {
-        // 클릭 이벤트가 tab_inner나 num을 클릭해도 작동하도록
         e.stopPropagation();
         
         const targetID = this.dataset.target;
@@ -128,24 +128,42 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
+    
   } else {
-    // PC: 높이 조절 방식
-    contents.forEach(content => {
+    // ========== PC ==========
+    // 첫 번째 탭 활성화
+    tabs[0].classList.add("active");
+    
+    // 초기 상태: 모든 박스를 h4만 보이는 높이로 설정
+    contents.forEach((content, index) => {
       const h4 = content.querySelector("h4");
       if (h4) {
         const h4Height = h4.scrollHeight + 60;
         content.style.height = h4Height + "px";
         content.classList.remove("open");
+        
+        // 첫 번째만 열린 상태로
+        if (index === 0) {
+          const contentBox = content.querySelector(".content_box");
+          if (contentBox) {
+            const fullHeight = contentBox.scrollHeight + 60;
+            content.style.height = fullHeight + "px";
+            content.classList.add("open");
+          }
+        }
       }
     });
 
+    // 탭 클릭 이벤트
     tabs.forEach(tab => {
       tab.addEventListener("click", function () {
         const targetID = this.dataset.target;
         
+        // 탭 활성화
         tabs.forEach(t => t.classList.remove("active"));
         this.classList.add("active");
 
+        // 컨텐츠 높이 조절
         contents.forEach(content => {
           const h4 = content.querySelector("h4");
           const contentBox = content.querySelector(".content_box");
@@ -156,9 +174,11 @@ document.addEventListener("DOMContentLoaded", function () {
           const fullHeight = contentBox.scrollHeight + 60;
 
           if (content.id === targetID) {
+            // 클릭한 탭 - 펼치기
             content.classList.add("open");
             content.style.height = fullHeight + "px";
           } else {
+            // 다른 탭 - 접기
             content.classList.remove("open");
             content.style.height = h4Height + "px";
           }

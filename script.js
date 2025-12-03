@@ -1,122 +1,179 @@
 //======햄버거메뉴=========
-// menu toggle
-const openBtn = document.querySelector('.open_btn');
-const closeBtn = document.querySelector('.close_btn');
-const navMenu = document.querySelector('.nav_menu');
+document.addEventListener('DOMContentLoaded', () => {
+  const openBtn = document.querySelector('.open_btn');
+  const closeBtn = document.querySelector('.close_btn');
+  const navMenu = document.querySelector('.nav_menu');
 
-if (openBtn && closeBtn && navMenu) {
-  openBtn.addEventListener('click', () => {
+  if (!openBtn || !closeBtn || !navMenu) {
+    console.error('버튼이나 메뉴를 찾을 수 없습니다!');
+    return;
+  }
+
+  // 메뉴 열기
+  openBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
     navMenu.classList.add('active');
+    closeBtn.style.display = 'block';
+    openBtn.style.display = 'none';
     document.body.style.overflow = 'hidden';
-    navMenu.setAttribute('aria-hidden', 'false');
   });
 
-  closeBtn.addEventListener('click', () => {
+  // 메뉴 닫기
+  closeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
     navMenu.classList.remove('active');
+    closeBtn.style.display = 'none';
+    openBtn.style.display = 'block';
     document.body.style.overflow = '';
-    navMenu.setAttribute('aria-hidden', 'true');
   });
 
-  // 닫기: 오버레이 바깥 클릭으로 닫기 (선택)
-  navMenu.addEventListener('click', (e) => {
-    if (e.target === navMenu) {
+  // 메뉴 링크 클릭 시 닫기
+  const navLinks = navMenu.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
       navMenu.classList.remove('active');
+      closeBtn.style.display = 'none';
+      openBtn.style.display = 'block';
       document.body.style.overflow = '';
-      navMenu.setAttribute('aria-hidden', 'true');
-    }
+    });
   });
-}
+});
 
-// 헤더 스크롤 동작: 아래로 스크롤하면 숨김, 위로 스크롤하면 표시
+
+//======헤더 스크롤 동작=========
 let lastScroll = window.scrollY || 0;
 const headerEl = document.querySelector('.header');
 
-window.addEventListener('scroll', () => {
-  const current = window.scrollY || 0;
-  if (!headerEl) return;
+if (headerEl) {
+  window.addEventListener('scroll', () => {
+    const current = window.scrollY || 0;
 
-  if (current > lastScroll && current > 80) {
-    // 스크롤 다운
-    headerEl.classList.add('hidden');
-  } else {
-    // 스크롤 업
-    headerEl.classList.remove('hidden');
+    if (current > lastScroll && current > 80) {
+      headerEl.classList.add('hidden');
+    } else {
+      headerEl.classList.remove('hidden');
+    }
+    lastScroll = current;
+  });
+}
+
+
+//======About 텍스트 페이드 인=========
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutText = document.querySelector(".about_text");
+
+  if (!aboutText) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          aboutText.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  observer.observe(aboutText);
+});
+
+
+//======Portfolio 이미지 복제 (무한 스크롤용)=========
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth > 768) {
+    const scrollContainer = document.querySelector('.scroll_container');
+    if (scrollContainer) {
+      const items = scrollContainer.innerHTML;
+      scrollContainer.innerHTML = items + items;
+    }
   }
-  lastScroll = current;
 });
 
 
-
-
-//about text fade in
-// About 텍스트 페이드 인
-document.addEventListener("DOMContentLoaded", () => {
-    const aboutText = document.querySelector(".about_text");
-
-    if (!aboutText) return;
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    aboutText.classList.add("show");
-                }
-            });
-        },
-        { threshold: 0.25 }
-    );
-
-    observer.observe(aboutText);
-});
-
-
-
-
-//process
-document.addEventListener("DOMContentLoaded", () => {
-  
+//======Process 탭 (PC & Mobile)=========
+document.addEventListener("DOMContentLoaded", function () {
   const tabs = document.querySelectorAll(".tab");
   const contents = document.querySelectorAll(".tab_content");
 
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      const target = tab.getAttribute("data-target");
+  if (!tabs.length || !contents.length) return;
 
-      contents.forEach(c => c.classList.remove("active"));
-      tabs.forEach(t => t.classList.remove("active"));   
+  const isMobile = window.innerWidth <= 768;
 
-      tab.classList.add("active");
-
-      const selected = document.getElementById(target);
-      selected.classList.add("active");
+  if (isMobile) {
+    // 모바일: 첫 번째 탭과 컨텐츠 활성화
+    tabs[0].classList.add("active");
+    contents[0].classList.add("active");
+    
+    tabs.forEach(tab => {
+      tab.addEventListener("click", function (e) {
+        // 클릭 이벤트가 tab_inner나 num을 클릭해도 작동하도록
+        e.stopPropagation();
+        
+        const targetID = this.dataset.target;
+        
+        // 모든 탭/컨텐츠 비활성화
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+        
+        // 클릭한 탭 활성화
+        this.classList.add("active");
+        const targetContent = document.getElementById(targetID);
+        if (targetContent) {
+          targetContent.classList.add("active");
+        }
+      });
     });
-  });
+  } else {
+    // PC: 높이 조절 방식
+    contents.forEach(content => {
+      const h4 = content.querySelector("h4");
+      if (h4) {
+        const h4Height = h4.scrollHeight + 60;
+        content.style.height = h4Height + "px";
+        content.classList.remove("open");
+      }
+    });
 
+    tabs.forEach(tab => {
+      tab.addEventListener("click", function () {
+        const targetID = this.dataset.target;
+        
+        tabs.forEach(t => t.classList.remove("active"));
+        this.classList.add("active");
+
+        contents.forEach(content => {
+          const h4 = content.querySelector("h4");
+          const contentBox = content.querySelector(".content_box");
+          
+          if (!h4 || !contentBox) return;
+          
+          const h4Height = h4.scrollHeight + 60; 
+          const fullHeight = contentBox.scrollHeight + 60;
+
+          if (content.id === targetID) {
+            content.classList.add("open");
+            content.style.height = fullHeight + "px";
+          } else {
+            content.classList.remove("open");
+            content.style.height = h4Height + "px";
+          }
+        });
+      });
+    });
+  }
 });
 
 
-//portfolio hirizontal scroll
-/*****************************************
- * Portfolio Scroll - Auto Scroll 제거 버전
- * PC/Mobile 모두 자동 스크롤 없음
- * 콘텐츠 부족하면 복제해서 폭만 늘림
- *****************************************/
-/*****************************************
- * Portfolio Scroll - PC만 복제 / 모바일 NO
- *****************************************/
-
-
-
-
-
-
-
-
-
-
-//rest 
+//======Rest 슬라이드쇼=========
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
+  if (!slides.length) return;
+  
   let current = 0;
 
   function fadeSlide() {
@@ -128,89 +185,43 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(fadeSlide, 7000);
 });
 
-//top btn & scroll progress bar
+
+//======스크롤 진행바 & Top 버튼=========
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* --- 스크롤 진행바 기능 --- */
   const progressBar = document.querySelector(".scroll_progress_bar");
+  const scrollTopBtn = document.querySelector(".scroll_top_btn");
 
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = (scrollTop / docHeight) * 100;
-
-    progressBar.style.height = progress + "%";
-  });
-
-  /* --- Top 버튼 기능 --- */
-  document.querySelector(".scroll_top_btn").addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+  // 스크롤 진행바
+  if (progressBar) {
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      progressBar.style.height = progress + "%";
     });
-  });
+  }
 
-});
-
-/* ==========================
-   PROCESS — SINGLE TAB VIEW
-========================== */
-document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll(".tab");
-    const contents = document.querySelectorAll(".tab_content");
-
-    // 처음 로딩 시: 모든 박스를 h4만 보이는 높이로 세팅
-    contents.forEach(content => {
-        const h4Height = content.querySelector("h4").scrollHeight + 60; // 패딩 포함
-        content.style.height = h4Height + "px";
-        content.classList.remove("open");
+  // Top 버튼
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
-
-    tabs.forEach(tab => {
-        tab.addEventListener("click", function () {
-            const targetID = this.dataset.target;
-
-            // 탭 활성화
-            tabs.forEach(t => t.classList.remove("active"));
-            this.classList.add("active");
-
-            contents.forEach(content => {
-                const contentBox = content.querySelector(".content_box");
-                const h4Height = content.querySelector("h4").scrollHeight + 60; 
-                const fullHeight = contentBox.scrollHeight + 60;
-
-                if (content.id === targetID) {
-                    content.classList.add("open");
-                    content.style.height = fullHeight + "px";
-                } else {
-                    content.classList.remove("open");
-                    content.style.height = h4Height + "px";
-                }
-            });
-        });
-    });
+  }
 });
 
 
-
-
-
-
-
-// 최초 실행
-setupTabs();
-
-// 화면 크기 변경 시 PC <-> 모바일 자동 재설정
-window.addEventListener("resize", () => {
-  setupTabs();
-});
-
+//======헤더 스크롤 시 배경색 변경=========
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".header_content");
-
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
+  
+  if (header) {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
   }
 });

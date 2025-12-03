@@ -380,7 +380,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
+  margin: 100px auto;
+  /* padding: 100px 0; */
 }
 .portfolio_wrapper {
   max-width: 1600px;
@@ -460,6 +461,7 @@
     position: relative;
     overflow: hidden;
     top: 100px;
+    margin: 100px auto;
   }
   .slideshow_container {
     position: relative;
@@ -511,7 +513,8 @@
   .process {
     position: relative;
     width: 100%;
-    margin: 0 auto;
+    margin: 100px auto;
+    padding: 100px;
 }
 
 .title_wrap_process {
@@ -536,12 +539,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   z-index: -1;
-}
-.process_title {
-  padding: 100px 32px;
-}
-.process_title {
-  padding: 100px 32px;
 }
 .process_title {
   padding: 100px 32px;
@@ -638,7 +635,7 @@
 }
 
 .content_box {
-    padding: 20px 40px;
+    padding: 30px 38px;
     width: 100%;
     align-items: center;
     text-align: center;
@@ -646,7 +643,7 @@
 }
 
 .tab_content h4 {
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     margin: 0;
     font-family: var(--font-korean);
@@ -679,7 +676,8 @@
   .bg_text {
     position: absolute;
     top: 70%;
-    left: 5%; 
+    left: 47%;
+    overflow: hidden; 
     transform: translate(8%, 70%);
     font-family: var(--font-body);
     font-size: 200px;

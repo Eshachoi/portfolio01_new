@@ -195,7 +195,6 @@
   
   /*==========main section 시작============*/
   .main_section {
-  width: 100vw;         /* 브라우저 전체 폭 */
   height: 100vh;        /* 브라우저 전체 높이 */
   display: flex;
   overflow: hidden;
@@ -261,7 +260,7 @@
   position: relative;
 }
   .main_right img {
-  width: 90%;
+  width: 100%;
   height: 100%;
   object-fit: cover;   
   display: block;
@@ -383,6 +382,7 @@
   flex-direction: column;
   align-items: center;
   margin: 100px auto;
+  overflow: hidden;
   /* padding: 100px 0; */
 }
 .portfolio_wrapper {
@@ -518,6 +518,7 @@
     margin: 100px auto;
     padding: 100px;
     min-height: 800px;
+    overflow: hidden;
 }
 
 .title_wrap_process {
@@ -527,11 +528,13 @@
 }
 
 .process_wrapper {
-  width: 1600px;
+  /* width: 1600px; */
   margin: 100px auto;
   position: relative;
   z-index: 2;
+  height: 850px;
 }
+
 .process_wrapper::before {
   content: "";
   position: absolute;
@@ -619,13 +622,13 @@
 .tab_contents {
     width: 100%;
     display: flex;
-    gap: 100px;
+    gap: 80px;
     position: relative;
     z-index: 2;
 }
 
 .tab_content {
-    width: 350px;
+    width: 330px;
     height: auto;
     background: var(--color-white);
     border-radius: 20px;
@@ -641,7 +644,6 @@
     width: 100%;
     align-items: center;
     text-align: center;
-    gap: 50px;
 }
 
 .tab_content h4 {
@@ -652,12 +654,13 @@
 }
 
 .tab_content p {
-    opacity: 0;
-    font-size: 16px;
+    opacity: 1;
+    font-size: 15px;
     line-height: 1.5;
-    transition: opacity .4s ease;
+    transition: opacity 0.4s ease;
     text-align: center;
     font-family: var(--font-korean);
+    padding-top: 5px;
     
 }
 

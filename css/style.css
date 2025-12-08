@@ -391,6 +391,7 @@
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
+  box-sizing: border-box;
   overflow: hidden;
 }
 /* 제목 영역 */
@@ -424,10 +425,28 @@
   bottom: 0;
   letter-spacing: 2px;
   display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
   margin: 0 auto;
   text-align: center;
 }
-
+.portfolio_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.portfolio_list li img {
+  display: block;
+  margin: 0;
+}
+.portfolio_list li,
+.portfolio_list li img {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 /* 무한 스크롤 컨테이너 */
 .scroll_container {
   display: flex;
@@ -440,24 +459,26 @@
   -webkit-overflow-scrolling: touch;
 }
 .scroll_container::-webkit-scrollbar {height: 8px;}
-.scroll_container::-webkit-scrollbar-thumb {background:rgba(0,0,0,0.12); border-radius: 4px;}
+.scroll_container::-webkit-scrollbar-thumb {
+  background:rgba(0,0,0,0.12); border-radius: 4px;
+}
 .scroll_container li {
   list-style: none;
   display: inline-block;
   flex-shrink: 0;
-  width: 100%;
   height: auto;
+  flex: 1 1 300px;
+  max-width: 480px;
+  box-sizing: border-box;
 }
 .scroll_container img {
-  width: 480px;
-  height: 480px;
+  width: 100%;
+  height: auto;
+  display: flex;
   object-fit: cover;
   border-radius: 18px;
 }
-.scroll_container li {
-  list-style: none;
-  flex-shrink: 0;
-}
+
 .scroll_container li:last-child {
   margin-right: 0;
 }
@@ -529,7 +550,7 @@
     margin: 100px auto;
     padding: 100px;
     min-height: 800px;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .title_wrap_process {
@@ -688,6 +709,10 @@
     opacity: 1;
     margin-top: 20px;
 }
+.bg_text_wrapper {
+  overflow-x: hidden;
+  position: relative;
+}
   .bg_text {
     position: absolute;
     bottom: 10%;
@@ -709,16 +734,23 @@
   /*service 시작*/
   .service {
     width: 100%;
-    height: 100vh;
+    height: auto;
+    padding: 120px 20px 80px;
     box-sizing: border-box;
     position: relative;
+    overflow-x: hidden;
   }
-  
+  .service_wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    text-align: center;
+  }
   /*title section*/
   .title_wrap_service {
     position: relative;
     text-align: center;
     margin-top: 150px;
+    margin-bottom: 60px;
   }
   /*가상이미지 사각형*/
   .service_wrapper::before {
@@ -747,14 +779,24 @@
   /*==========service list=============*/
   .service_list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     margin: 200px auto 120px;
     gap: 32px;
+    overflow-x: hidden;
   }
   /*각각의 이미지카드*/
+  .service_item {
+    flex: 1 1 300px;
+    min-width: 0;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+  }
   .service_item figure {
     overflow: hidden;
+    margin: 0 0 20px 0;
     width: 340px;
     height: 470px;
     border-radius: 8px;
@@ -762,7 +804,8 @@
   }
   .service_item img{
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
     object-fit: cover;
     transition: transform 0.4s ease;
   }
@@ -770,10 +813,13 @@
     transform: scale(1.12);
   }
   .service_item h3 {
-    font-size: 28px;
+    font-size: 20px;
     font-family: var(--font-body);
     text-align: center;
-    margin-top: 30px;
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
   
   /*inquiry 시작*/

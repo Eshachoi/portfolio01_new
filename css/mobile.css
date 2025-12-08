@@ -260,7 +260,7 @@
     
     /*텍스트는 가상요소 아래에*/
     .section_title_portfolio {
-      font-size: 32px;
+      font-size: 28px;
       position: relative;
       z-index: 1;
       text-align: center;
@@ -282,7 +282,8 @@
   }
 
   .scroll_container li {
-    margin: 0;               /* 기존의 margin-right:30 제거 */
+    margin: 0;      
+    flex: 1 1 100%;         /* 기존의 margin-right:30 제거 */
   }
 
   .scroll_container img {
@@ -555,7 +556,7 @@
   /*==========service section==========*/ 
 
   .service {
-    padding: 60px 20px;
+    padding: 60px 15px 40px;
     height: auto;
     margin-bottom: 60px;
   }
@@ -582,8 +583,9 @@
     position: relative;
     text-align: center;
     margin: 60px auto 40px;
-    padding: 0 20px;
-    width: 100%;
+    padding: 10px;
+    max-width: 100%;
+    flex: 1 1 100%;
   }
   /*모바일 가상요소*/
   .title_wrap_service::before {
@@ -715,6 +717,20 @@
 }
 .main_section {
   flex-direction: column;
+}
+.service {
+  padding: 80px 20px 60px;
+}
+.section_title_service {
+  font-size: 36px;
+}
+.service_item {
+  flex: 1 1 45%;
+  max-width: 45%;
+  padding: 15px;
+}
+.scroll_container {
+  flex: 1 1 45%;
 }
 
 

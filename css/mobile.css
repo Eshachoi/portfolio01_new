@@ -725,7 +725,7 @@
   font-size: 36px;
 }
 .service_item {
-  flex: 1 1 45%;
+  /* flex: 1 1 45%; */
   max-width: 45%;
   padding: 15px;
 }

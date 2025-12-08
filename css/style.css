@@ -17,6 +17,7 @@
   
   * {
     box-sizing: border-box;
+    outline: 1px solid rgba(255,0 0 0.08);
   }
   body {
     margin: 0;
@@ -386,9 +387,11 @@
   /* padding: 100px 0; */
 }
 .portfolio_wrapper {
+  width: 100%;
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
 }
 /* 제목 영역 */
 .title_wrap_portfolio {
@@ -397,12 +400,12 @@
   text-align: center;
   width: 100%;
   top: 100px;
-
+  box-sizing: border-box;
 }
 .portfolio_wrapper::before {
   content: "";
   position: absolute;
-  left: 40%;
+  left: 50%;
   top: 0;
   transform: translateX(-50%);
   width: 170px;
@@ -427,8 +430,10 @@
 
 /* 무한 스크롤 컨테이너 */
 .scroll_container {
-  width: max-content;
-  overflow: hidden;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
   gap: 50px;
   margin-top: 200px;
   scroll-behavior: smooth;
@@ -440,12 +445,18 @@
   list-style: none;
   display: inline-block;
   flex-shrink: 0;
+  width: 100%;
+  height: auto;
 }
 .scroll_container img {
   width: 480px;
   height: 480px;
   object-fit: cover;
   border-radius: 18px;
+}
+.scroll_container li {
+  list-style: none;
+  flex-shrink: 0;
 }
 .scroll_container li:last-child {
   margin-right: 0;
@@ -679,8 +690,8 @@
 }
   .bg_text {
     position: absolute;
-    top: 80%;
-    left: 70%;
+    bottom: 10%;
+    left: 80%;
     transform: translateX(-50%);
     font-family: var(--font-body);
     font-size: 200px;
@@ -691,6 +702,7 @@
     pointer-events: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
   /*process 끝*/
   
@@ -712,8 +724,8 @@
   .service_wrapper::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 37%;
+    top: 3%;
+    /* left: 50%; */
     /* transform: translateX(-50%); */
     width: 170px;
     height: 170px;

@@ -13,62 +13,48 @@
         transform: translateX(-50%);
       }
     }
-    .scroll_container:hover {
+  .scroll_container:hover {
       animation-play-state: paused;
     }
-    .scroll_container li {
+  .scroll_container li {
       flex-shrink: 0;
     }
-    .scroll_container img {
+  .scroll_container img {
       width: 509px;
       height: 509px;
       object-fit: cover;
       border-radius: 17px;
     }
-
-    .process_tabs {
+  .process_tabs {
         display: flex;
         justify-content: space-between;
         margin: 80px 0 60px;
     }
-
-    .tab_inner {
+  .tab_inner {
         display: flex;
         flex-direction: column;
         width: 200px;
     }
   }
-
-  /*모바일일때*/
   @media screen and (max-width: 768px) {
     body, html {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      /* overflow-x: hidden; */
     }
-
-    /*모바일 컨택트 버튼*/
-    .contact_btn {
+  .contact_btn {
       display: none;/*pc용 컨택 숨김*/
     }
-    .mobile_call_btn {
+  .mobile_call_btn {
       display: block;
       font-size: 26px;
       color: var(--color-brown);
       margin-right: 10px;
     }
-
-    .logo img {
-      height: 70px;
-    }
-    /*햄버거 버튼 (모바일)*/
-  
-    /* PC 레이아웃 완전 초기화 */
-    .main_section {
+  .main_section {
       all: unset;
       display: flex;
-      width: 100vw;
+      width: 100%;
       height: 60vh; 
       align-items: center;
       position: relative;
@@ -78,8 +64,7 @@
       box-sizing: border-box;
       margin-bottom: 120px;
     }
-  
-    .main_wrapper {
+  .main_wrapper {
       all: unset;
       display: flex;
       width: 100%;
@@ -92,9 +77,7 @@
       position: relative;
       margin-bottom: 120px;
     }
-  
-    /* 배경 이미지 */
-    .main_right {
+  .main_right {
       all: unset;
       position: absolute;
       inset: 0;
@@ -102,15 +85,12 @@
       height: 70vh;
       z-index: 1;
     }
-  
-    .main_right img {
+  .main_right img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-  
-    /* 메인섹션 텍스트 오버레이 */
-    .main_left {
+  .main_left {
       all: unset;
       position: absolute;
       top: 68%;
@@ -121,32 +101,29 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding-left: 6vw;
       min-width: 320px;
       box-sizing: border-box;
       background: none;
       z-index: 2;
       color: #fff;
     }
-    .content_box {
+  .content_box {
       background: none;
       box-shadow: none;
     }
-    .content_box h2 {
+  .content_box h2 {
       font-size: 2.6rem;
       line-height: 1.3;
       color: #fff;
       text-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
-  
-    .content_box p {
+  .content_box p {
       margin-top: 16px;
       font-size: 1.1rem;
       color: #fff;
       text-shadow: 0 2px 12px rgba(0,0,0,0.35);
     }
-  
-    .view_btn {
+  .view_btn {
       margin-top: 30px;
       background: rgba(255,255,255,0.85);
       padding: 12px 28px;
@@ -155,15 +132,14 @@
       border: none;
       color: var(--color-brown);
     }
-    /*about section 모바일 */
-    .about {
+  .about {
       padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 60px;
     }
-    .about_imgs {
+  .about_imgs {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -172,29 +148,27 @@
       height: auto;
       position: relative;
     }
-    .about_imgs .img img {
+  .about_imgs .img img {
       width: 100%;
       max-width: 350px;
       height: auto;
       display: block;
       margin: auto;
-
     }
-    .about_imgs .img01 {
+  .about_imgs .img01 {
       position: relative;
       display: block;
       width: 100%;
       margin: 0 auto;
     }
-    /* 이미지 2,3 모바일에서 숨기기 */
-    .about_imgs .img02,
-    .about_imgs .img03 {
+  .about_imgs .img02,
+  .about_imgs .img03 {
         display: none;
     }
-    .aout_inner {
+  .aout_inner {
       position: relative;
     }
-    .about_text {
+  .about_text {
       position: absolute;
       top: 100px;
       left: 50%;
@@ -205,34 +179,32 @@
       padding: 0 20px;
       margin-top: -40px;
     }
-    .about_text h2 {
+  .about_text h2 {
       font-size: 2.8rem;
       font-weight: bold;
       margin-bottom: 20px;
       color: var(--color-darkbrown);
     }
-    .about_text p {
+  .about_text p {
       color: var(--color-brown);
       font-weight: 700;
       text-shadow: 0 0 15px rgba(255,255,255,0.85);
     }
-    .about_text .line {
+  .about_text .line {
         font-size: 1.3rem
     }
- 
-    /*===========portfolio 모바일============*/
-    .portfolio {
+  .portfolio {
       height: auto;
       margin-bottom: 60px;
       padding: 60px 20px;
     }
-    .portfolio_wrapper {
+  .portfolio_wrapper {
       width: 100%;
       max-width: 100%;
       margin: 0 auto;
       padding: 0;
     }
-    .title_wrap_portfolio {
+  .title_wrap_portfolio {
       margin: 60px auto 40px;
       padding: 0 20px;
       width: 100%;
@@ -240,8 +212,7 @@
       position: relative;
       text-align: center;
     }
-     /* 모바일용 가상요소*/
-     .title_wrap_portfolio::before {
+  .title_wrap_portfolio::before {
       content: "";
       position: absolute;
       width: 70px;
@@ -254,13 +225,12 @@
       background-repeat: no-repeat;
       z-index: 0;
      }
-    .portfolio_wrapper::before {
+  .portfolio_wrapper::before {
       display: none;
     }
-    
-    /*텍스트는 가상요소 아래에*/
-    .section_title_portfolio {
-      font-size: 28px;
+     /*텍스트는 가상요소 아래에*/
+  .section_title_portfolio {
+      font-size: 32px;
       position: relative;
       z-index: 1;
       text-align: center;
@@ -269,7 +239,7 @@
       transform: translateY(-15%);
       letter-spacing: 1px;
     }
-    .scroll_container {
+  .scroll_container {
     width: 100%;
     max-width: 600px;        /* 모바일에서 전체 폭 제한 */
     margin: 60px auto 0;          /* 가운데 정렬 */
@@ -280,30 +250,20 @@
     white-space: normal;
     overflow: visible;       /* 필요한만큼 늘어나게 */
   }
-
   .scroll_container li {
-    margin: 0;      
-    flex: 1 1 100%;         /* 기존의 margin-right:30 제거 */
+    margin: 0;               /* 기존의 margin-right:30 제거 */
   }
-
   .scroll_container img {
     width: 100%;
     height: 160px;           /* 비율 맞게 보기 좋은 높이 */
     object-fit: cover;
     border-radius: 14px;
   }
-
   .title_wrap_portfolio,
   .title_wrap_process {
     margin: 80px 0;
     display: inline-block;
-  }
-  
-
-
-
-/*=======rest section=======*/
- 
+  } 
 .rest {
   height: 60vh;
   background-image: url(../image/mid-backbg.png);
@@ -333,12 +293,8 @@
     font-size: 1.1rem;
     line-height: 1.4;
     color: var(--color-brown);
-    font-weight: 600;
-    
+    font-weight: 600; 
   }
-
-/*============process===========*/
-/* 부모 여백 복구 */
     .process {
         padding: 60px 20px;
         margin-bottom: 80px;
@@ -350,7 +306,7 @@
       padding: 0;
     }
     .process_wrapper::before {
-      display: none;
+      /* display: none; */
     }
     .process_title {
       padding:60px 0;
@@ -366,7 +322,6 @@
       text-align: center;
       position: relative;
     }
-    /*가상이미지*/
     .title_wrap_process::before {
       content: "";
       position: absolute;
@@ -381,9 +336,8 @@
       z-index: 0;
     }
     .process_wrapper::before {
-      display: none;
+      /* display: none; */
     }
-    /*타이틀 텍스트*/
     .section_title_process {
     font-size: 32px;
     position: relative;
@@ -391,10 +345,8 @@
     margin-top: 50px;
     left: -10%;
     bottom: 10px;
-    transform: none;
-    
+    transform: none; 
     }
-
     .process .intro_text {
         margin: 30px auto 0;
         padding: 0 10px;
@@ -404,12 +356,6 @@
       font-size: 15px;
       line-height: 1.5;
     }
-    .bg_text {
-      overflow: hidden;
-    }
-    /* -------------------------------------
-       탭(정사각형 번호만 표시, 1열 세로)
-    -------------------------------------- */
     .process_tabs {
         display: flex;
         justify-content: space-between;
@@ -427,8 +373,6 @@
         min-width: 0;
         padding: 5px;
     }
-
-
      .tab_inner {
         width: 55px;
         height: 55px;
@@ -441,8 +385,6 @@
         transition: all 0.3s ease;
         pointer-events: none;
     }
-
-    /* 모바일에서는 큰 흐린 번호 없앰 */
     .tab .num {
         font-size: 20px;
         font-weight: 600;
@@ -453,13 +395,9 @@
         display: block;
         pointer-events: none;
     }
-
-    /* 모바일에서는 라벨 숨김 */
     .tab .label {
         display: none;
     }
-
-    /* 활성화된 번호박스 */
     .tab.active .tab_inner {
         background: var(--color-beige);
         transform: scale(1.05);
@@ -468,9 +406,6 @@
       color: var(--color-white);
       font-weight: 700;
     }
-    /* -------------------------------------
-       탭 컨텐츠(아래 하나만 열림)
-    -------------------------------------- */
     .tab_contents {
         margin-top: 30px;
         width: 100%;
@@ -479,7 +414,6 @@
         padding: 0 10px;
         box-sizing: border-box;
     }
-
     .tab_content {
         display: none;
         width: 100%;
@@ -501,7 +435,6 @@
         opacity: 1;
         transform: translateY(0);
     }
-
     .tab_content h4 {
         font-size: 17px;
         margin-bottom: 16px;
@@ -512,7 +445,6 @@
         word-break: keep-all;
         display: block;/*항상 보임*/
     }
-
     .tab_content p {
         font-size: 14px;
         color: var(--color-brown);
@@ -542,21 +474,14 @@
     font-size: 3vw;
     padding: 12px 28px;
   }
-  /* 모바일에서 탭 클릭 시 p를 보이게 할 준비 */
   .tab_content.open p {
       display: block;
   }
-    /* 배경 텍스트 숨김 */
-    .bg_text {
+  .bg_text {
         display: none;
     }
-
-  
-
-  /*==========service section==========*/ 
-
   .service {
-    padding: 60px 15px 40px;
+    padding: 60px 20px;
     height: auto;
     margin-bottom: 60px;
   }
@@ -566,7 +491,7 @@
     margin: 0 auto;
     padding: 0;
   }
-  .title_wrapper::before {
+  .title_wrapper_service::before {
     content: "";
     position: absolute;
     width: 70px;
@@ -583,18 +508,12 @@
     position: relative;
     text-align: center;
     margin: 60px auto 40px;
-    padding: 10px;
-    max-width: 100%;
-    flex: 1 1 100%;
+    padding: 0 20px;
+    width: 100%;
   }
-  /*모바일 가상요소*/
   .title_wrap_service::before {
-    display: none;
+    /* display: none; */
   }
-  .title_wrapper ::before {
-    display: none;
-  }
-  /*텍스트*/
   .section_title_service {
     font-size: 32px;
     position: relative;
@@ -602,7 +521,6 @@
     margin-top: 50px;
     left: 0;
     transform: none;
-    
   }
   .service_list {
     display: flex;
@@ -626,8 +544,6 @@
     margin-top: 20px;
     font-size: 22px;
   }
-  
-  /*inqyiry section*/
   .inquiry {
     height: auto;
     padding: 80px 20px;
@@ -658,8 +574,6 @@
     padding: 120x 24px;
     border-radius: 40px;
   }
-
-
   .footer {
     height: auto;
     padding: 10px 0;
@@ -686,27 +600,18 @@
   line-height: 1;        /* 흔들림 방지 */
   margin: 2px 0;
 }
-
 .footer_row .bar {
   display: inline-flex;
   align-items: center;   /* 막대 글자 높이를 확실히 중앙에 고정 */
   height: 100%;
   line-height: 1;
 }
-
- 
 }
-
 @media (max-width: 1024px){
   .header_left { width: 90px; justify-content: flex-start; }
   .header_right { width: 90px; }
-  .logo img { height: 44px; }
-
-  /* show mobile call icon, hide contact text */
   .contact_btn { display: none; }
   .mobile_call_btn { display: inline-flex; }
-
-  /* hamburger size */
   .open_btn i { font-size: 1.8rem; }
 }
 .main_left {
@@ -718,27 +623,6 @@
 .main_section {
   flex-direction: column;
 }
-.service {
-  padding: 80px 20px 60px;
-}
-.section_title_service {
-  font-size: 36px;
-}
-.service_item {
-  /* flex: 1 1 45%; */
-  max-width: 45%;
-  padding: 15px;
-}
-.scroll_container {
-  flex: 1 1 45%;
-}
-
-
-/* ---------------------------
-   반응형
----------------------------- */
-
-/* PC에서는 모바일 메뉴 숨김 */
 @media (min-width: 1025px) {
   .section_title_service {
     font-size: 38px;
@@ -748,14 +632,8 @@
     height: 130px;
     top: 30px 0;
     left: 30%;
-
-
+  }
+  .service_item figure {
   }
 }
-  /* .nav_menu { display: none; }  */
-  /* if desktop uses normal nav, keep overlay hidden */
 
-  @media (max-width:1280px) {
-    
-   
-  }

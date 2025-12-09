@@ -63,7 +63,7 @@
     font-family: var(--font-body);
     font-size: 23px;
     font-weight: 500;
-    color: #595049;
+    color: var(--color-brown);
     z-index: 1000;
   }
   .mobile_call_btn {
@@ -199,7 +199,7 @@
   .content_box h2 {
   font-family: var(--font-heading);
   font-size: 3.8vw;      /* 반응형 크기 */
-  color: #595049;
+  color:var(--color-brown);
   line-height: 1.5;
   margin: 0;
   font-family: var(--font-korean);
@@ -207,7 +207,7 @@
   .content_box p {
   margin-top: 25px;
   font-size: 1.2vw;
-  color: #595049;
+  color: var(--color-brown);
   word-break: keep-all;
 }
   .view_btn {
@@ -404,12 +404,12 @@
 }
 .scroll_container {
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   padding-bottom: 10px;
   gap: 50px;
   margin-top: 200px;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;
 }
 .scroll_container::-webkit-scrollbar {height: 8px;}
@@ -479,10 +479,10 @@
     z-index: 10;
   }
   .rest_content h3 {
-    font-family: "GounBatang", serif;
+    font-family: var(--font-batang);
     font-weight: 700;
     font-size: 2.4rem;
-    color: #3a2f28;
+    color: var(--color-darkbrown);
     line-height: 2.5;
     text-shadow: 0 2px 10px rgba(255,255,255,0.8);
   }
@@ -580,7 +580,7 @@
     opacity: 1;
 }
 .tab.active .label {
-    color: #3a2f28;
+    color: var(--color-darkbrown);
 }
 .tab_contents {
     width: 100%;
@@ -591,7 +591,7 @@
 }
 .tab_content {
     width: 330px;
-    height: auto;
+    /* height: auto; */
     background: var(--color-white);
     border-radius: 20px;
     overflow: hidden;
@@ -606,6 +606,7 @@
     font-size: 20px;
     text-align: center;
     margin: 0;
+    padding: 20px;
     font-family: var(--font-korean);
 }
 .tab_content p {
@@ -615,7 +616,7 @@
     transition: opacity 0.4s ease;
     text-align: center;
     font-family: var(--font-korean);
-    padding-top: 5px;    
+    padding-top: 55px;    
 }
 .tab_content.open {
     opacity: 1;
@@ -630,7 +631,7 @@
 }
   .bg_text {
     position: absolute;
-    bottom: 20%;
+    bottom: 10%;
     left: 70%;
     transform: translateX(-50%);
     font-family: var(--font-body);
@@ -743,14 +744,14 @@
     text-align: left;
   }
   .inquiry_content h2 {
-    font-family: "Gowun Batang", serif;
+    font-family: var(--font-batang);
     font-size: 2.8rem;
     color: #FFFFFF;
     margin-bottom: 50px;
     word-break: keep-all;
   }
   .inquiry_content p {
-    font-family: "Gowun Batang", sans-serif;
+    font-family: var(--font-batang);
     font-size: 1.5rem;
     color: #FFFFFF;
     margin-bottom: 50px;
@@ -758,19 +759,19 @@
   }
   .inquiry_content .btn_inquiry {
     display: inline-block;
-    font-family: "Noto Sans KR", serif;
+    font-family: var(--font-korean);
     font-size: 1.5rem;
     font-weight: 500;
     text-decoration: none;
-    color: #595049;
-    background-color: #FFFFFF;
+    color: var(--color-brown);
+    background-color: var(--color-white);
     border-radius: 50px;
     padding: 16px 36px;
     transition: 0.6s ease;
   }
   .btn_inquiry:hover {
-    background-color: #A48D78;
-    color: #FFFFFF;
+    background-color: var(--color-lightbrown);
+    color: var(--color-white);
   }
 .footer {
   width: 100%;
@@ -796,10 +797,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;     /* 세로 정렬 완벽 */
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: var(--font-korean);
   font-size: 1rem;
   color: var(--color-white);
-  line-height: 1;          /* 세로 흔들림 제거 */
+  line-height: 1.5;          /* 세로 흔들림 제거 */
   margin: 3px 0;
 }
 .footer_info p {
@@ -809,6 +810,14 @@
   height: 100%;
   line-height: 1;
   padding: 0 16px;
+}
+.contatn_info a {
+  font-family: var(--font-korean);
+  font-size: 1rem;
+  color: var(--color-white);
+}
+.contact_info {
+  margin-left: 22px;
 }
 
   

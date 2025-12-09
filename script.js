@@ -84,16 +84,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //======Portfolio 이미지 복제 (무한 스크롤용)=========
+//document.addEventListener("DOMContentLoaded", () => {
+//  if (window.innerWidth > 768) {
+//    const scrollContainer = document.querySelector('.scroll_container');
+//    if (scrollContainer) {
+//      const items = scrollContainer.innerHTML;
+//      scrollContainer.innerHTML = items + items;
+//    }
+//  }
+//});
 document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth > 768) {
     const scrollContainer = document.querySelector('.scroll_container');
     if (scrollContainer) {
-      const items = scrollContainer.innerHTML;
-      scrollContainer.innerHTML = items + items;
+      // 원본 아이템들을 복제
+      const originalItems = Array.from(scrollContainer.children);
+      
+      // 2번 더 복제해서 총 3세트 만들기
+      originalItems.forEach(item => {
+        scrollContainer.appendChild(item.cloneNode(true));
+      });
+      originalItems.forEach(item => {
+        scrollContainer.appendChild(item.cloneNode(true));
+      });
+      
+      let scrollPosition = 0;
+      const scrollSpeed = 0.5; // 스크롤 속도 조절
+      let animationId;
+      let isPaused = false;
+      
+      // 첫 번째 세트의 전체 너비 계산
+      let setWidth = 0;
+      for (let i = 0; i < originalItems.length; i++) {
+        setWidth += scrollContainer.children[i].offsetWidth + 50; // gap 포함
+      }
+      
+      function animate() {
+        if (!isPaused) {
+          scrollPosition += scrollSpeed;
+          
+          // 한 세트를 완전히 지나가면 처음으로 리셋
+          if (scrollPosition >= setWidth) {
+            scrollPosition = 0;
+          }
+          
+          scrollContainer.scrollLeft = scrollPosition;
+        }
+        
+        animationId = requestAnimationFrame(animate);
+      }
+      
+      animate();
+      
+      // 마우스 호버 시 일시정지
+      scrollContainer.addEventListener('mouseenter', () => {
+        isPaused = true;
+      });
+      
+      scrollContainer.addEventListener('mouseleave', () => {
+        isPaused = false;
+      });
     }
   }
 });
-
 
 //======Process 탭 (PC & Mobile)=========
 //document.addEventListener("DOMContentLoaded", function () {

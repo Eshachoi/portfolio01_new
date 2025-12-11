@@ -380,3 +380,23 @@ window.addEventListener("scroll", () => {
     }
   }
 });
+
+
+
+
+
+// 스크롤페이드인 
+// const content = document.getElementsByClassName("content");
+
+// window.addEventListener("scroll", ()=>{
+//     const winH = window.innerHeight;
+
+//     for(let i = 0; i < content.length; i++){
+//         const contentTop = content[i].getBoundingClientRect().top;
+//         if(contentTop - winH < 0){
+//             content[i].classList.add("in");
+//         }else{
+//             content[i].classList.remove("in");
+//         }
+//     }
+// })

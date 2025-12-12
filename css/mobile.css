@@ -85,7 +85,7 @@
         width: 200px;
     }
   }
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     body, html {
       margin: 0;
       padding: 0;
@@ -95,11 +95,19 @@
       display: none;/*pc용 컨택 숨김*/
     }
   .mobile_call_btn {
-      display: block;
-      font-size: 26px;
-      color: var(--color-brown);
-      margin-right: 10px;
-    }
+    display: block;
+    font-size: 26px;
+    color: var(--color-brown);
+    margin-right: 10px;
+  }
+  .open_btn {
+    top: 37px;
+    right: 18px;
+  }
+  .close_btn {
+    top: 37px;
+    right: 18px;
+  }
   .main_section {
       all: unset;
       display: flex;
@@ -146,29 +154,29 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      width: 40%;
+      width: 75%;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       box-sizing: border-box;
       background: none;
       z-index: 2;
-      color: #fff;
+      color: var(--color-beige);
     }
   .content_box {
       background: none;
       box-shadow: none;
     }
   .content_box h2 {
-      font-size: 2.6rem;
-      line-height: 1.3;
-      color: #fff;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      font-size: 2rem;
+      line-height: 1.5;
+      color: var(--color-white);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.8);
     }
   .content_box p {
       margin-top: 16px;
-      font-size: 1.1rem;
-      color: #fff;
+      font-size: 24px;
+      color: var(--color-white);
       text-shadow: 0 2px 12px rgba(0,0,0,0.35);
     }
   .view_btn {

@@ -42,26 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
-//======헤더 스크롤 동작=========
-let lastScroll = window.scrollY || 0;
-const headerEl = document.querySelector('.header');
-
-if (headerEl) {
-  window.addEventListener('scroll', () => {
-    const current = window.scrollY || 0;
-
-    if (current > lastScroll && current > 80) {
-      headerEl.classList.add('hidden');
-    } else {
-      headerEl.classList.remove('hidden');
-    }
-    lastScroll = current;
-  });
-}
-
-
 //======About 텍스트 페이드 인=========
 document.addEventListener("DOMContentLoaded", () => {
   const aboutText = document.querySelector(".about_text");
@@ -82,17 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(aboutText);
 });
 
-
-//======Portfolio 이미지 복제 (무한 스크롤용)=========
-//document.addEventListener("DOMContentLoaded", () => {
-//  if (window.innerWidth > 768) {
-//    const scrollContainer = document.querySelector('.scroll_container');
-//    if (scrollContainer) {
-//      const items = scrollContainer.innerHTML;
-//      scrollContainer.innerHTML = items + items;
-//    }
-//  }
-//});
 document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth > 768) {
     const scrollContainer = document.querySelector('.scroll_container');
@@ -147,99 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
-//======Process 탭 (PC & Mobile)=========
-//document.addEventListener("DOMContentLoaded", function () {
-//  const tabs = document.querySelectorAll(".tab");
-//  const contents = document.querySelectorAll(".tab_content");
-//
-//  if (!tabs.length || !contents.length) return;
-//
-//  const isMobile = window.innerWidth <= 768;
-//
-//  if (isMobile) {
-//    // ========== 모바일 ==========
-//    // 첫 번째 탭과 컨텐츠 활성화
-//    tabs[0].classList.add("active");
-//    contents[0].classList.add("active");
-//    
-//    tabs.forEach(tab => {
-//      tab.addEventListener("click", function (e) {
-//        e.stopPropagation();
-//        
-//        const targetID = this.dataset.target;
-//        
-//        // 모든 탭/컨텐츠 비활성화
-//        tabs.forEach(t => t.classList.remove("active"));
-//        contents.forEach(c => c.classList.remove("active"));
-//        
-//        // 클릭한 탭 활성화
-//        this.classList.add("active");
-//        const targetContent = document.getElementById(targetID);
-//        if (targetContent) {
-//          targetContent.classList.add("active");
-//        }
-//      });
-//    });
-//    
-//  } else {
-//    // ========== PC ==========
-//    // 첫 번째 탭 활성화
-//    tabs[0].classList.add("active");
-//    
-//    // 초기 상태: 모든 박스를 h4만 보이는 높이로 설정
-//    contents.forEach((content, index) => {
-//      const h4 = content.querySelector("h4");
-//      if (h4) {
-//        const h4Height = h4.scrollHeight + 60;
-//        content.style.height = h4Height + "px";
-//        content.classList.remove("open");
-//        
-//        // 첫 번째만 열린 상태로
-//        if (index === 0) {
-//          const contentBox = content.querySelector(".content_box");
-//          if (contentBox) {
-//            const fullHeight = contentBox.scrollHeight + 60;
-//            content.style.height = fullHeight + "px";
-//            content.classList.add("open");
-//          }
-//        }
-//      }
-//    });
-//
-//    // 탭 클릭 이벤트
-//    tabs.forEach(tab => {
-//      tab.addEventListener("click", function () {
-//        const targetID = this.dataset.target;
-//        
-//        // 탭 활성화
-//        tabs.forEach(t => t.classList.remove("active"));
-//        this.classList.add("active");
-//
-//        // 컨텐츠 높이 조절
-//        contents.forEach(content => {
-//          const h4 = content.querySelector("h4");
-//          const contentBox = content.querySelector(".content_box");
-//          
-//          if (!h4 || !contentBox) return;
-//          
-//          const h4Height = h4.scrollHeight + 60; 
-//          const fullHeight = contentBox.scrollHeight + 60;
-//
-//          if (content.id === targetID) {
-//            // 클릭한 탭 - 펼치기
-//            content.classList.add("open");
-//            content.style.height = fullHeight + "px";
-//          } else {
-//            // 다른 탭 - 접기
-//            content.classList.remove("open");
-//            content.style.height = h4Height + "px";
-//          }
-//        });
-//      });
-//    });
-//  }
-//});
 
 document.addEventListener("DOMContentLoaded", function () {
   const tabs = document.querySelectorAll(".tab");

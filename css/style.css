@@ -701,11 +701,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: ;
     margin: 200px auto 120px;
     /* gap: 32px; */
     overflow-x: hidden;
   }
+
   .service_item {
     min-width: 0;
     box-sizing: border-box;

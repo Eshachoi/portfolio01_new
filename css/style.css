@@ -16,6 +16,7 @@
 }
 body {
   margin: 0;
+  padding: 0;
   color: var(--color-brown);
   background-color: var(--color-ivory);
   font-family: var(--font-body);
@@ -244,15 +245,17 @@ body.menu-open {
 }
 .about {
   width: 100%;
-  display: flex;
+  display: block;
   justify-content: center;
   padding: 180px 0;
   position: relative;
 }
+.about_bg_mobile {
+  display: none;
+  z-index: 1;
+}
 .about_inner {
-  position: relative;
   width: 100%;
-  max-width: 1500px;
   margin: 0 auto;
 }
 .about_imgs {
@@ -286,9 +289,8 @@ body.menu-open {
   transform: translateX(-50%);
   opacity: 0.9;
 }
-
 .about_text {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

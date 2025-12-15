@@ -203,7 +203,7 @@ body.menu-open {
 }
 .content_box h2 {
   font-family: var(--font-heading);
-  font-size: 3.8vw; /* 반응형 크기 */
+  font-size: 4.5rem; /* 반응형 크기 */
   color: var(--color-brown);
   line-height: 1.5;
   margin: 0;
@@ -245,18 +245,21 @@ body.menu-open {
 }
 .about {
   width: 100%;
-  display: block;
+  display: flex;
   justify-content: center;
   padding: 180px 0;
   position: relative;
+  overflow: hidden;
 }
 .about_bg_mobile {
   display: none;
-  z-index: 1;
 }
 .about_inner {
+  position: relative;
   width: 100%;
+  max-width: 1500px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 .about_imgs {
   position: relative;
@@ -265,20 +268,25 @@ body.menu-open {
 }
 .about_imgs .img {
   position: absolute;
+  overflow: hidden;
 }
 .about_imgs img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   border-radius: 12px;
 }
 .about_imgs .img01 {
   top: 0;
+  width: 500px;
+  height: 500px;
 }
 .about_imgs .img02 {
   top: 8%;
-  right: 8%;
-  width: 450px;
-  height: 450px;
+  right: 5%;
+  width: 430px;
+  height: 430px;
   opacity: 0.9;
 }
 .about_imgs .img03 {
@@ -290,12 +298,13 @@ body.menu-open {
   opacity: 0.9;
 }
 .about_text {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 10;
+  pointer-events: none;
 }
 .about_text h2 {
   font-family: var(--font-body);
@@ -609,14 +618,13 @@ body.menu-open {
 }
 .tab_content {
   width: 330px;
-  /* height: auto; */
   background: var(--color-white);
   border-radius: 20px;
   overflow: hidden;
   text-align: center;
   transition: height 0.6s ease;
 }
-.content_box {
+.process {
   align-items: center;
   text-align: center;
 }

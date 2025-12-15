@@ -1,44 +1,44 @@
 //======햄버거메뉴=========
-document.addEventListener('DOMContentLoaded', () => {
-  const openBtn = document.querySelector('.open_btn');
-  const closeBtn = document.querySelector('.close_btn');
-  const navMenu = document.querySelector('.nav_menu');
+document.addEventListener("DOMContentLoaded", () => {
+  const openBtn = document.querySelector(".open_btn");
+  const closeBtn = document.querySelector(".close_btn");
+  const navMenu = document.querySelector(".nav_menu");
 
   if (!openBtn || !closeBtn || !navMenu) {
-    console.error('버튼이나 메뉴를 찾을 수 없습니다!');
+    console.error("버튼이나 메뉴를 찾을 수 없습니다!");
     return;
   }
 
   // 메뉴 열기
-  openBtn.addEventListener('click', function(e) {
+  openBtn.addEventListener("click", function (e) {
     e.preventDefault();
     e.stopPropagation();
-    
-    navMenu.classList.add('active');
-    closeBtn.style.display = 'block';
-    openBtn.style.display = 'none';
-    document.body.style.overflow = 'hidden';
+
+    navMenu.classList.add("active");
+    closeBtn.style.display = "block";
+    openBtn.style.display = "none";
+    document.body.style.overflow = "hidden";
   });
 
   // 메뉴 닫기
-  closeBtn.addEventListener('click', function(e) {
+  closeBtn.addEventListener("click", function (e) {
     e.preventDefault();
     e.stopPropagation();
-    
-    navMenu.classList.remove('active');
-    closeBtn.style.display = 'none';
-    openBtn.style.display = 'block';
-    document.body.style.overflow = '';
+
+    navMenu.classList.remove("active");
+    closeBtn.style.display = "none";
+    openBtn.style.display = "block";
+    document.body.style.overflow = "";
   });
 
   // 메뉴 링크 클릭 시 닫기
-  const navLinks = navMenu.querySelectorAll('a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      closeBtn.style.display = 'none';
-      openBtn.style.display = 'block';
-      document.body.style.overflow = '';
+  const navLinks = navMenu.querySelectorAll("a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      closeBtn.style.display = "none";
+      openBtn.style.display = "block";
+      document.body.style.overflow = "";
     });
   });
 });
@@ -64,53 +64,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth > 768) {
-    const scrollContainer = document.querySelector('.scroll_container');
+    const scrollContainer = document.querySelector(".scroll_container");
     if (scrollContainer) {
       // 원본 아이템들을 복제
       const originalItems = Array.from(scrollContainer.children);
-      
+
       // 2번 더 복제해서 총 3세트 만들기
-      originalItems.forEach(item => {
+      originalItems.forEach((item) => {
         scrollContainer.appendChild(item.cloneNode(true));
       });
-      originalItems.forEach(item => {
+      originalItems.forEach((item) => {
         scrollContainer.appendChild(item.cloneNode(true));
       });
-      
+
       let scrollPosition = 0;
       const scrollSpeed = 0.5; // 스크롤 속도 조절
       let animationId;
       let isPaused = false;
-      
+
       // 첫 번째 세트의 전체 너비 계산
       let setWidth = 0;
       for (let i = 0; i < originalItems.length; i++) {
         setWidth += scrollContainer.children[i].offsetWidth + 50; // gap 포함
       }
-      
+
       function animate() {
         if (!isPaused) {
           scrollPosition += scrollSpeed;
-          
+
           // 한 세트를 완전히 지나가면 처음으로 리셋
           if (scrollPosition >= setWidth) {
             scrollPosition = 0;
           }
-          
+
           scrollContainer.scrollLeft = scrollPosition;
         }
-        
+
         animationId = requestAnimationFrame(animate);
       }
-      
+
       animate();
-      
+
       // 마우스 호버 시 일시정지
-      scrollContainer.addEventListener('mouseenter', () => {
+      scrollContainer.addEventListener("mouseenter", () => {
         isPaused = true;
       });
-      
-      scrollContainer.addEventListener('mouseleave', () => {
+
+      scrollContainer.addEventListener("mouseleave", () => {
         isPaused = false;
       });
     }
@@ -130,20 +130,19 @@ document.addEventListener("DOMContentLoaded", function () {
     tabs[0].classList.add("active");
     contents[0].classList.add("active");
 
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       tab.addEventListener("click", function (e) {
         e.stopPropagation();
-        
+
         const targetID = this.dataset.target;
 
-        tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
+        tabs.forEach((t) => t.classList.remove("active"));
+        contents.forEach((c) => c.classList.remove("active"));
 
         this.classList.add("active");
         document.getElementById(targetID).classList.add("active");
       });
     });
-
   } else {
     // ========== PC ==========
 
@@ -152,11 +151,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     contents.forEach((content, index) => {
       const h4 = content.querySelector("h4");
-      const contentBox = content.querySelector(".content_box");
+      const contentBox = content.querySelector(".content_box_process");
 
       if (!h4 || !contentBox) return;
 
-      const h4Height = h4.scrollHeight + 60;  
+      const h4Height = h4.scrollHeight + 60;
       const fullHeight = contentBox.scrollHeight + 60;
 
       if (index === 0) {
@@ -171,16 +170,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // 클릭 이벤트
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       tab.addEventListener("click", function () {
         const targetID = this.dataset.target;
 
-        tabs.forEach(t => t.classList.remove("active"));
+        tabs.forEach((t) => t.classList.remove("active"));
         this.classList.add("active");
 
-        contents.forEach(content => {
+        contents.forEach((content) => {
           const h4 = content.querySelector("h4");
-          const contentBox = content.querySelector(".content_box");
+          const contentBox = content.querySelector(".content_box_process");
           if (!h4 || !contentBox) return;
 
           const h4Height = h4.scrollHeight + 60;
@@ -199,12 +198,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
 //======Rest 슬라이드쇼=========
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   if (!slides.length) return;
-  
+
   let current = 0;
 
   function fadeSlide() {
@@ -215,7 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(fadeSlide, 7000);
 });
-
 
 //======스크롤 진행바 & Top 버튼=========
 document.addEventListener("DOMContentLoaded", () => {
@@ -237,17 +234,16 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTopBtn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     });
   }
 });
 
-
 //======헤더 스크롤 시 배경색 변경=========
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".header_content");
-  
+
   if (header) {
     if (window.scrollY > 50) {
       header.classList.add("scrolled");
@@ -257,11 +253,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-
-
-
-
-// 스크롤페이드인 
+// 스크롤페이드인
 // const content = document.getElementsByClassName("content");
 
 // window.addEventListener("scroll", ()=>{

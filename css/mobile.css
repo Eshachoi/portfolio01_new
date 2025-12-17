@@ -30,6 +30,52 @@
     word-break: keep-all;
   }
 }
+@media (max-width: 1024px) {
+  .header_left {
+    width: 90px;
+    justify-content: flex-start;
+  }
+  .header_right {
+    width: 90px;
+  }
+  .contact_btn {
+    display: none;
+  }
+  .mobile_call_btn {
+    display: inline-flex;
+  }
+  .open_btn i {
+    font-size: 1.8rem;
+  }
+
+ .main_left {
+   width: 45%;
+ }
+ ._main h2 {
+   font-size: 4vw;
+ }
+ .main_section {
+   flex-direction: column;
+ }
+ .service_list {
+   grid-template-columns: repeat(2, 1fr);
+ }
+ .title_wrap_service::before {
+  left: 50%;
+  transform: translateX(-50%);
+ }
+}
+@media (min-width: 1025px) {
+  .section_title_service {
+    font-size: 38px;
+  }
+  .service_wrapper::before {
+    width: 130px;
+    height: 130px;
+    top: 30px 0;
+    left: 30%;
+  }
+}
 @media (max-width: 930px) {
   .tab .num {
     font-size: 45px;
@@ -91,6 +137,9 @@
     padding: 0;
     box-sizing: border-box;
   }
+  .header_content {
+    padding: 0 18px;
+  }
   .contact_btn {
     display: none; /*pc용 컨택 숨김*/
   }
@@ -110,9 +159,9 @@
   }
   .main_section {
     all: unset;
-    display: flex;
-    width: 100%;
-    height: 60vh;
+    /* display: flex; */
+    /* width: 100%; */
+    /* height: 60vh; */
     align-items: center;
     position: relative;
     overflow: hidden;
@@ -154,7 +203,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 75%;
+    /* width: 75%; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -175,7 +224,7 @@
   }
   .content_box p {
     margin-top: 16px;
-    font-size: 24px;
+    font-size: 20px;
     color: var(--color-white);
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   }
@@ -525,11 +574,12 @@
   }
   .tab_content p {
     font-size: 14px;
+    font-weight: 400;
     color: var(--color-brown);
     text-align: center;
     line-height: 1.8;
-    margin: 0;
-    display: block;
+    margin:30px;
+    /* display: block; */
     word-break: keep-all;
     opacity: 1;
   }
@@ -560,7 +610,6 @@
   }
   .service {
     padding: 40px 20px;
-    height: auto;
     margin-bottom: 60px;
   }
   .service_wrapper {
@@ -569,7 +618,7 @@
     margin: 0 auto;
     padding: 0;
   }
-  .title_wrapper_service::before {
+  .title_wrap_service::before {
     content: "";
     position: absolute;
     width: 70px;
@@ -578,7 +627,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 0;
-    left: 10%;
+    left: 20%;
     transform: translateX(-50%);
   }
   .title_wrap_service {
@@ -592,28 +641,24 @@
     font-size: 24px;
     position: relative;
     z-index: 1;
-    margin-top: 50px;
-    left: 0;
-    transform: translateY(42px);
+    margin-top: 40px;
+    /* left: 0; */
+    top: 40px;
+    transform: none;
     text-align: center;
   }
   .service_list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 120px;
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+    margin: 80px auto;
     gap: 40px;
   }
-  .service_list_first,
-  .service_list_second {
-    display: flex;
-    flex-direction: column;
+  .service_item {
+    width: 100%;
   }
   .service_item figure {
-    width: 100%;
-    height: auto;
-    max-width: 340px;
+    max-width: 100%;
   }
   .service_item img {
     height: auto;
@@ -689,48 +734,18 @@
     height: 100%;
     line-height: 1;
   }
-}
-@media (max-width: 1024px) {
-  .header_left {
-    width: 90px;
-    justify-content: flex-start;
+  .contact_info {
+    flex-direction: column;
+    white-space: normal;
+    align-items: center;
+    gap: 6px;
+    margin-left: 0;
   }
-  .header_right {
-    width: 90px;
-  }
-  .contact_btn {
+  .pipe {
     display: none;
   }
-  .mobile_call_btn {
-    display: inline-flex;
-  }
-  .open_btn i {
-    font-size: 1.8rem;
-  }
 }
-.main_left {
-  width: 45%;
-}
-._main h2 {
-  font-size: 4vw;
-}
-.main_section {
-  flex-direction: column;
-}
-.service_list {
-  grid-template-columns: repeat(2, 1fr);
-}
-@media (min-width: 1025px) {
-  .section_title_service {
-    font-size: 38px;
-  }
-  .service_wrapper::before {
-    width: 130px;
-    height: 130px;
-    top: 30px 0;
-    left: 30%;
-  }
-}
+
 @media (min-width: 360px) {
   .footer_wrapper {
     display: flex;

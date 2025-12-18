@@ -1,7 +1,7 @@
 @media (max-width: 1800px) {
   .about_imgs .img01 {
     width: 30%;
-    left: 20%;
+    left: 5%;
   }
 }
 @media (max-width: 1600px) {
@@ -657,7 +657,7 @@
     width: 100%;
   }
   .service_item figure {
-    max-width: 100%;
+    /* max-width: 100%; */
   }
   .service_item img {
     height: auto;
